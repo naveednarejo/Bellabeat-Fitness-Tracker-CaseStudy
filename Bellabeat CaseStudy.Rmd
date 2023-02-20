@@ -1,0 +1,786 @@
+---
+title: "Bellabeat CaseStudy"
+author: "Naveed Narejo"
+date: "`r Sys.Date()`"
+output:
+  html_document: default
+  word_document: default
+  pdf_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Google Data Analytics Capstone: Bellabeat Case Study:
+
+The Bellabeat Marketing Analysis is the second case study of Google's Data Analytics Professional Certificate program. The case study requires the analyst to follow to the steps of the data analysis process (Ask, Prepare, Process, Analyze, Share, and Act) to analyze FitBit Fitness Tracker dataset.
+
+## Step 1: Ask
+
+### About the Company :
+
+Bellabeat is a high-tech company that manufactures health-focused smart products. Sršen used her background as an artist to develop beautifully designed technology that informs and inspires women around the world. Collecting data on activity, sleep, stress, and reproductive health has allowed Bellabeat to empower women with knowledge about their own health and habits.
+
+##### Key Stakeholders:
+
+-   Urška Sršen: Bellabeat's co founder and Chief Creative Officer
+-   Sando Mur: Mathematician and Bellabeat's co-founder
+-   Bellabeat marketing analytics team: A team of data analysts responsible for collecting, analyzing, and reporting data that helps guide Bellabeat's marketing strategy
+
+### Business Task:
+
+Unlock new growth opportunities by analyzing smart device fitness data and gaining insight into how consumers use their smart devices, which will help guide he marketing strategy for the company.
+
+##### Data analysis goal:
+
+1.  What are some trends in smart device usage?
+2.  How could these trends apply to Bellabeat customers?
+3.  How could these trends help influence Bellabeat marketing strategy?
+
+### Deliverables:
+
+-   A clear summary of the business task
+-   A description of all data sources used
+-   Documentation of any cleaning or manipulation of data
+-   A summary of your analysis
+-   Supporting visualizations and key findings
+-   Your top high-level content recommendations based on your analysis
+
+## Step 2: Prepare
+
+###### Data Source: FitBit Fitness Tracker Data is used for the analysis. It is an open source data and is available on Kaggle.[Click here for Data.](https://www.kaggle.com/datasets/arashnic/fitbit)
+
+The data set contains 18 CSV files organized in long format. Below is a breakdown of the data using the ROCCC approach: - 
+- Reliability - LOW: The data comes from 32 users only 
+- Original - LOW: The data is collected by third party. 
+- Comprehensive - MED: The dataset contains multiple fields on daily activity intensity, calories used, daily steps taken, daily sleep time and weight record. 
+- Current - LOW: This data is from 2016. The data is not current. 
+- Cited - LOW: Data was collected from a third party, therefore unknown.
+
+### Installing R-Package
+
+Installing the R-packages needed for the required analysis.
+
+```{r installing packages}
+  # install.packages("tidyverse")   #   Functions: dplyr(), tidyr() , stringr(), tibble(), readr(), purrr(), ggplot2() )
+  # install.packages("janitor")     #   Functions: clean_names(), remove_empty(), get_dupes() )
+  # install.packages("lubridate")   #   Functions: datetime fuctions 
+  # install.packages("plotly")      #   Functions: plot_ly()
+  # install.packages("dplyr")       #   Functions: pipes()
+  # install.packages("ggalluvial")  #   Functions: ggplot2 extension 
+  # install.packages("devtools")    #   Functions: load_all(), document(), test(), install_github()
+  # devtools::install_github("kassambara/ggpubr") #   Functions: to break in quartiles in graphs
+  # install.packages("gginnards")   #   Functions: ggplot2 extension for static and geometric analysis
+  # install.packages("scales")      #   Functions: labeling as percents, dollars or scientific notation
+
+```
+
+## Loading R Environment
+
+Loading the packages needed for the data processing and required analysis.
+
+```{r loading libraries}
+  library(tidyverse)
+  library(janitor)
+  library(lubridate)
+  library(plotly)
+  library(dplyr)
+  library(ggalluvial)
+  library(ggpubr)
+  library(gghighlight)
+  library(gginnards)
+  library(scales)
+  
+
+```
+
+## Step 3: Process
+
+### Importing files
+
+For this analysis we will be using these four datasets:
+
+-   dailyActivity_merged.csv
+-   sleepDay_merged.csv
+-   weightLogInfo_merged.csv
+-   hourlysteps_merged.csv
+
+```{r importing data}
+
+
+ 
+ daily_activity <- read_csv(file = "D:\\Fitness Tracker CaseStudy\\Fitabase Data 4.12.16-5.12.16\\dailyActivity_merged.csv")%>%
+ remove_empty()
+
+ steps_perhour <- read_csv(file = "D:\\Fitness Tracker CaseStudy\\Fitabase Data 4.12.16-5.12.16\\hourlySteps_merged.csv")%>%
+ remove_empty()
+
+ sleep_data <- read_csv(file = "D:\\Fitness Tracker CaseStudy\\Fitabase Data 4.12.16-5.12.16\\sleepDay_merged.csv")%>%
+ remove_empty()
+
+  weight_data <- read_csv(file = "D:\\Fitness Tracker CaseStudy\\Fitabase Data 4.12.16-5.12.16\\weightLogInfo_merged.csv")%>%
+ remove_empty()
+    
+
+  
+     head(daily_activity) # 1st glimpse of the data
+     head(weight_data) # 1st glimpse of the data
+     head(sleep_data) # 1st glimpse of the data
+     head(weight_data) # 1st glimpse of the data
+
+```
+
+To make sure that everything required is imported correctly, we need to verify by using View() and head() functions. Now that I've imported all of the data frames that I'll be using, I can start cleaning up the data. I will look at each data frame to familiarize myself with the data and check for errors.I'll be analyzing each file separately.
+
+##### **Cleaning, Formatting & Organizing: Daily Activity dataframe**
+
+```{r Firstlook: reviewing DAILY ACTVITY dataframe }
+ View(daily_activity) #viewing the complete dataset
+ str(daily_activity) #inspecting structure of data i.e data types
+ colnames(daily_activity)  #checking column names
+```
+
+```{r Cleaning, Formating & Organizing: DAILY AcTVITY dataframe }
+
+ daily_activity <- clean_names(daily_activity) # cleaning column names to snake format
+ get_dupes(daily_activity) #no duplicate found
+ daily_activity$activity_date <- as.Date(strptime(daily_activity$activity_date, "%m/%d/%Y")) # Changing dates to date format. Note: Date here is character, however it should be date
+ str(daily_activity) # rechecking data for changes verification
+
+
+```
+
+```{r brief summary:  DAILY AcTVITY dataframe }
+daily_activity %>%
+summarise(total_users = n_distinct(daily_activity$id)) #total number of unique users
+
+
+daily_activity %>%
+select(total_steps,
+total_distance,
+calories) %>%
+summary()
+
+
+```
+
+In the above chunks the Daily Activity dataframe is analyzed for blanks NA, Data type error, Irrelevant/Inconsistent formatting and duplicate. There were no duplicates found the dataframe, all the column names are converted in to snake_format, and data type of DATE column changed from Character to Date. Here we also familiarize ourselves with the data a bit more i.e. we look for Min/Avg/Max distance traveled, steps walked and calories burned by all the users during 31 days.
+
+##### **Cleaning, Formatting & Organizing: Steps Per Hour dataframe**
+
+```{r  Firstlook: reviewing STEPS_PER_HOUR dataframe }
+
+ View(steps_perhour) #viewing the complete dataset
+ str(steps_perhour) #inspecting structure of data i.e data types. Note: Date here is character, however it should be date
+ colnames(steps_perhour)  #checking column names
+
+ 
+```
+
+```{r Cleaning, Formating & Organizing: STEPS_PER_HOUR dataframe }
+
+ steps_perhour <- clean_names(steps_perhour) # cleaning column names to snake format
+ get_dupes(steps_perhour) #no duplicate found
+ steps_perhour$activity_hour <- as.Date(steps_perhour$activity_hour, "%m/%d/%Y")  # Changing dates to date format. Note: Date here is character, however it should be date
+ str(steps_perhour) # rechecking data for changes verification
+
+```
+
+```{r brief summary:  STEPS_PER_HOUR dataframe}
+steps_perhour %>%
+summarise(total_users = n_distinct(steps_perhour$id)) #total number of unique users
+
+
+steps_perhour %>%
+select(step_total) %>%
+summary()
+
+
+```
+
+In the above chunks the steps per hour dataframe is analyzed for blanks NA, Data type error, Irrelevant/Inconsistent formatting and duplicate. There were no duplicates found the dataframe, all the column names are converted in to snake_format, and data type of DATE column changed from Character to Date. Here we also familiarize ourselves with the data a bit more i.e. we look for Min/Avg/Max steps taken by the users.
+
+##### **Cleaning, Formatting & Organizing: Sleep dataframe**
+
+```{r  Firstlook: reviewing SLEEP dataframe }
+
+ View(sleep_data) #viewing the complete dataset
+ str(sleep_data) #inspecting structure of data i.e data types. Note: Date here is character, however it should be date
+ colnames(sleep_data)  #checking column names
+
+ 
+```
+
+```{r Cleaning, Formating & Organizing: SLEEP dataframe }
+
+ sleep_data <- clean_names(sleep_data) # cleaning column names to snake format
+ sleep_data$sleep_day <- as.Date(strptime(sleep_data$sleep_day, "%m/%d/%Y")) # Changing dates to date format. Note: Date here is character, however it should be date
+ get_dupes(sleep_data) # 6 duplicate found 
+ sleep_duplicates <- get_dupes(sleep_data) # duplicates saved to remove later
+ str(sleep_data) # rechecking data for changes verification
+ 
+ #removing duplicates using anti-join
+ sleep_data <- anti_join(sleep_data, sleep_duplicates)
+ rm(sleep_duplicates)
+
+
+```
+
+```{r brief summary:  SLEEP dataframe}
+sleep_data %>%
+summarise(total_users = n_distinct(sleep_data$id)) #total number of unique users
+
+
+sleep_data %>%
+select(
+total_minutes_asleep,
+total_time_in_bed) %>%
+summary()
+
+```
+
+In the above chunks the sleep dataframe is analyzed for its blanks, NA, Data type error, Irrelevant/Inconsistent formatting and duplicate. We looked for duplicates and a total of 6 duplicates found, I saved it as a separate data frame and removed the duplicate by using Anti_Join. Here all the column names are converted in to snake_format, and data type of DATE column changed from Character to Date. Here we also familiarize ourselves with the data a bit more i.e. We look for Min/Avg/Max minutes_asleep and time_in_bed.
+
+##### **Cleaning, Formatting & Organizing: Weight dataframe**
+
+```{r  Firstlook: reviewing WEIGHT dataframe }
+
+ View(weight_data) #viewing the complete dataset
+ str(weight_data) #inspecting structure of data i.e data types. Note: Date here is character, however it should be date
+ colnames(weight_data)  #checking column names
+
+ 
+```
+
+```{r Cleaning, Formating & Organizing: WEIGHT dataframe }
+
+ weight_data <- clean_names(weight_data) # cleaning column names to snake format
+ weight_data$date <- as.Date(strptime(weight_data$date, "%m/%d/%Y"))  # Changing dates to date format. Note: Date here is character, however it should be date
+ get_dupes(weight_data) # no duplicate found 
+ str(weight_data) # rechecking data for changes verification
+
+
+```
+
+```{r brief summary:  WEIGHT dataframe}
+weight_data %>%
+summarise(total_users = n_distinct(weight_data$id)) #total number of unique users
+
+
+weight_data %>%
+select(
+weight_kg,
+weight_pounds,
+fat) %>%
+summary()
+
+```
+
+In the above chunks the weight dataframe is analyzed for blanks, NA, Data type error, Irrelevant/Inconsistent formatting and duplicate.There were no duplicates found the dataframe, all the column names are converted in to snake_format, and data type of DATE column changed from Character to Date. Here we also familiarize ourselves with the data a bit more i.e. we look for Min/Avg/Max weight in KGs and pounds.
+
+## Step 4-5: Analyze & Share
+
+##### **Analyzing: Steps Data - Creating Total Steps Histograms**
+
+Creating a histogram to display the distribution of steps taken each day
+
+```{r steps_graph: Steps Analysis after Outlier removal}
+steps_graph_with_outlier <- ggplot(daily_activity, aes(x=total_steps)) + 
+      geom_histogram(aes(y = ..density..), colour = "#1F3552", fill = "#D8E2EB") + 
+      geom_density() +
+      theme_cleveland () +
+      scale_y_continuous(labels = scientific)
+
+steps_graph_with_outlier
+
+#cleaning the environment, dropping the obsolete dataframe
+rm(steps_graph_with_outlier)
+```
+
+This is a normal looking curve with a positive skew and extreme outliers after 25,000 steps Now, I Filtered out days where no activity is recorded and outliers and rerun save the results, I will remove the outliers and create a new graph.
+
+```{r steps_graph: Steps Analysis}
+#Removing outliers
+
+daily_activity <- daily_activity[(daily_activity$total_steps>0) & (daily_activity$total_steps < 25000) ,]
+
+#steps_graph: Steps Analysis  after removing outliers
+# Produce new histogram
+
+steps_graph_without_outliers <- 
+  ggplot(daily_activity, aes(total_steps,)) + 
+  geom_histogram(aes(y = ..density..), colour = "#1F3552", fill = "#c8c7d7") + 
+  geom_density(alpha = 0.3) +
+  ggtitle("Historgram of Total Steps") + 
+  theme_cleveland () +
+  labs(title = "Total Steps Historgram", 
+       x = "Total Steps", y = "Density")
+
+steps_graph_without_outliers
+
+#cleaning the environment, dropping the obsolete dataframe
+rm(steps_graph_without_outliers)
+```
+
+There is still a skew, but we have minimized extreme bias.
+
+##### **Running Descriptive Analysis**
+
+Here, I am running a descriptive statistics to familiarize myself with the data.
+
+```{r Descriptive Analysis: USER ACTIVITY(Montlhy) }
+
+monthly_user_activity <-
+      daily_activity  %>% 
+      group_by(id) %>% 
+      summarise(
+        record_count = n(),
+        sum_steps_monthly = sum(total_steps),
+        min_steps_monthly = min(total_steps),
+        max_steps_monthly = max(total_steps),
+        median_steps_monthly = median(total_steps),
+        median_steps_daily = median(total_steps)/n(),
+        avg_steps_monthly = mean(total_steps),
+        std_steps_monthly = sd(total_steps)
+      )
+
+monthly_user_activity
+
+```
+
+Some individuals have extremely low engagement, which may skew analyses. I'll group people according to their levels of engagement in order to analyze it further.
+
+Now for detailed analysis, I'm distributing the participants into four groups (Never, Low, Moderate, and High) on how often they track their health. It will help us to analyze the Weight data,Steps count and Sleep activities for each user. The users with more then 20 days records are categorized as **High**, the ones with activity records between 10 and 20 days are assigned the **Moderate** category, users with records less then 10 days are categorized as **Low** and for those who have NO records for any activity are categorized as **Never**.
+
+```{r User Catorgization according to Device Usage}
+
+daily_steps_records <- 
+        daily_activity %>%
+        count(id) %>%
+        mutate(steps_groups = case_when(
+          n <= 10 ~ "Low",
+          n <= 20 ~ "Moderate",
+          n <= 31 ~ "High"
+        )
+           )
+
+       
+      #counting how many nights each participant recorded their sleep and also grouping them
+       #based on frequency of recording
+      sleep_records <-
+        sleep_data %>%
+        count(id) %>%
+        mutate(sleep_groups = case_when(
+          n <= 10 ~ "Low",
+          n <= 20 ~ "Moderate",
+          n <= 31 ~ "High"
+        )
+        )
+
+      
+       #doing the same for weight
+      weight_records <-
+        weight_data %>%
+        count(id) %>%
+        mutate(weight_groups = case_when(
+          n <= 10 ~ "Low",
+          n <= 20 ~ "Moderate",
+          n <= 31 ~ "High"
+        )
+        )
+      
+    
+      
+#full join with sleep
+daily_steps_records <- 
+  daily_steps_records       %>% 
+  full_join(sleep_records, by="id")
+  
+# full join with weight
+daily_steps_records <- 
+  daily_steps_records       %>% 
+  full_join(weight_records, by="id") 
+
+daily_steps_records <- 
+  daily_steps_records %>%
+  replace_na(list(sleep_records = 0, weight_records = 0, sleep_groups = "Never", weight_groups = "Never"))
+
+
+#renaming the column 2 of the data set
+colnames(daily_steps_records)[2] <- 'total_count'
+
+
+#Dropping extra columns created while merge
+daily_steps_records <- daily_steps_records[ -c(4,6) ]
+
+
+      
+      
+  #categorizing overall device usage by the participants    
+    sleep_groups_percentage <-   daily_steps_records %>% group_by(sleep_groups) %>% summarise(Percentage=n()/nrow(.)) #calculating the % of High,Low,Med for users
+      colnames(sleep_groups_percentage)[1] <- 'group'
+    
+    steps_groups_percentage <-   daily_steps_records %>% group_by(steps_groups) %>% summarise(Percentage=n()/nrow(.))  #calculating the % of High,Low,Med for users
+          colnames(steps_groups_percentage)[1] <- 'group'
+
+    weight_groups_percentage <-  daily_steps_records %>% group_by(weight_groups) %>% summarise(Percentage=n()/nrow(.))  #calculating the % of High,Low,Med for users
+          colnames(weight_groups_percentage)[1] <- 'group'
+
+#joining all activities in a single dataframe.
+device_user_percentage <- 
+   steps_groups_percentage    %>% 
+  full_join(sleep_groups_percentage, by="group")
+
+
+device_user_percentage <- 
+  device_user_percentage       %>% 
+  full_join(weight_groups_percentage, by="group")
+    
+colnames(device_user_percentage) <- c('Recording_Frequency','steps_Percent','sleep_Percent', 'weight_percent') #renaming the dataframe columns
+device_user_percentage[is.na(device_user_percentage)] = 0 #replacing all NAs with 0
+device_user_percentage[2:4] <- sapply(device_user_percentage[2:4], function(x) percent(x, accuracy=2)) #converting decimal values to % form.
+
+
+#cleaning the environment, dropping all the obsolete dataframes
+rm(sleep_records, weight_records,sleep_groups_percentage,steps_groups_percentage,weight_groups_percentage)     
+
+
+daily_steps_records  
+      
+```
+
+##### **Activity wise Device Engagement - Alluvial plot**
+
+In order to determine which features of the devices are most and least used, we now look for the device conversion rate or engagement rate. This will make it easier for us to comprehend how user numbers increase/decrease as users switch between different activities
+
+```{r  Device Engagement }
+
+
+      
+#Transforming the recording frequency data frame into a long format to make the building of the alluvial plot easier.
+
+actvities_graph_data  <- daily_steps_records[c("id", "steps_groups", "sleep_groups", "weight_groups")] %>%
+  pivot_longer(!id )
+
+  
+
+actvties_analysis_graph  <- 
+    ggplot(actvities_graph_data, aes(x = name, stratum = value, alluvium = id, fill = value, label = value)) +
+    scale_x_discrete(limits = c("steps_groups", "sleep_groups", "weight_groups"), expand = c(.1, .1))+
+    geom_flow() +
+    geom_stratum(alpha = .5) +
+    geom_text(stat = "stratum", size = 3) +
+    labs(title = "Device Usage for Each actvity", x = " ", y = "Number of users") +
+   scale_y_reverse()+
+    scale_fill_brewer(type = "qual", palette = "Set2") +
+    theme(legend.position = "none", 
+          panel.background = element_blank(),
+          axis.text.x = element_text(size = 14),
+          axis.text.y = element_text(size = 10),
+          plot.title = element_text(size=18, hjust = 0.5), 
+          axis.title.y = element_text(size = 14))
+ 
+
+
+
+device_user_percentage
+actvties_analysis_graph
+
+
+#cleaning the environment, dropping all the obsolete dataframes
+rm(actvities_graph_data, device_user_percentage, actvties_analysis_graph)
+
+```
+
+**Key Insights:**
+
+-   **75%+** users recorded their daily steps for more then 20days, this reduces to **36%** when it comes to sleep monitoring and its further reduced to **6%** when it comes to recording the weights.
+-   Another trend which can be visualized here is of **Moderate Users**,(those who recorded more then 10day and less then 20days), it keep decreasing i.e. **22%, 10%, & 0%** for Steps group, Sleep Group and weight group respectively.
+-   The data shares the trend that there is a sharp growth in *Never Recorder's* chunk, as its **0%** for Daily steps recorders, its **28%** and **76%** for Sleep and Weight recorders respectively.\
+    \
+
+##### **Daily Steps Records Vs Device Usage - Scatter plot**
+
+We have to find out, is there a relationship between average activity per day(daily steps) and recording device. To understand the relationship clearly we will only be considering the users with more then 10 days of steps recording.
+
+```{r Daily Steps Records Vs Device Usage}
+
+
+#filtering data for outliers
+filter_records <- filter(daily_steps_records, total_count < 10)
+
+
+#removed id "4057192912" because they only recorded 3 out of 31 days
+
+  daily_steps_records <- subset(daily_steps_records, id!= 4057192912)
+
+#verifying the data accuracy
+  filter(daily_steps_records, (daily_steps_records$id == "4057192912"))
+  
+  
+  #Recording Frequency vs Monthly Steps                                                         
+device_engagment <- ggplot(data=monthly_user_activity, aes(x = record_count, y = avg_steps_monthly))+
+                    geom_point() +
+                    geom_smooth(method = lm) +
+                    theme_minimal() +
+                    labs(title = "Recording Frequency vs Monthly Steps", 
+                         x = "Number of Days Recorded", y = "Average Steps Per Participant") +
+                    theme(plot.title = element_text(size = 12, hjust = 0.5),
+                          axis.title.x = element_text(size = 10),
+                          axis.title.y = element_text(size = 10)) 
+
+daily_steps_records
+device_engagment
+
+
+#cleaning the environment, dropping all the obsolete dataframes
+rm(filter_records,device_engagment, daily_steps_records )
+
+```
+
+There is just one user with less than 10days records, renaming users have recorded the steps for more than 10days. Its clear in above graph that there is a positive correlation between daily steps and days recorded, so we can say that the more someone records their health data, we see a higher average daily steps.
+
+\
+\
+
+##### **Trends in Time**
+
+Here, I'll be looking for answers of following questions. - Is there a trend in time? - Is a particular time of the day or night when participants use the device more? - who are the device users ? User social profile if possible. - Most active hours ?
+
+```{r Trends in Time: Most Active Hours}
+#Most Active Hours
+                        
+steps_perhour$hours <- format(as.POSIXct(steps_perhour$hours), format = "%H:%M")  #remove the seconds and just have hours and minutes
+
+ most_active_hours <- steps_perhour %>%
+   group_by(hours) %>%
+   summarize(avg_steps_hourly = mean(step_total)) %>% #find average steps for each hour
+   ggplot(aes(hours, avg_steps_hourly, group = 1)) +
+   geom_line(color = "#900C3F") +
+   ggtitle("Average Steps Per Hour") +
+   theme_minimal() +
+   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1),
+         text = element_text(size = 8)) +
+   xlab("Hour of the Day") + ylab("Average Step Count") +
+   annotate("rect", xmin = "11:00", xmax = "15:00", 
+            ymin = 0, ymax = 700, alpha = .1) +
+   annotate("rect", xmin = "17:00", xmax = "20:00", 
+            ymin = 0, ymax = 700, alpha = .1) +
+   annotate("rect",  xmin = "07:00", xmax = "10:00", 
+            ymin = 0, ymax = 700, alpha = .1) +
+      annotate("text", x = "13:00", y = 650, 
+            label = "Afternoon", hjust = "center", size = 3) +
+   annotate("text", x = 19.5, y = 650, 
+            label = "Evening", hjust = "center", size = 3) +
+    annotate("text", x = 9.5, y = 650,
+          label = "Morning", hjust = "center", size = 3)
+
+ 
+
+ steps_perhour
+ most_active_hours
+ 
+```
+
+The above time trends show us that mostly there are a 3 type of active users, the ones who exercise during morning time, some do it in afternoon while there is peak in evening time as well. To analyze it further we must break the data in quartiles and investigate.\
+\
+
+```{r Trends in Time: Most Active Hour - Quartiles }
+ monthly_user_activity$sum_quartile <- as.factor(ntile(monthly_user_activity$sum_steps_monthly, 4))
+ 
+ steps_perhour <- inner_join(steps_perhour, monthly_user_activity[ , c("id", "sum_quartile")], by = "id")
+ 
+ 
+
+ most_active_hours <-  steps_perhour %>%
+   group_by(sum_quartile, hours) %>%
+   summarize(avg_steps_hourly = mean(step_total)) %>% #find average steps for each hour
+   ggplot(aes(hours, avg_steps_hourly, group = sum_quartile, color = sum_quartile)) +
+   geom_line() +
+   ggtitle("Average Steps Per Hour") +
+   theme_minimal() +
+   theme(axis.text.x = element_text(angle = 90, vjust = 0.5, hjust=1))+
+   xlab("Hour of the Day") + ylab("Average Steps") +
+   labs(color = "Quartile") +
+   annotate("rect", xmin = "16:00", xmax = "20:00", 
+            ymin = 0, ymax = 1250, alpha = .1) +
+   annotate("rect", xmin = "11:00", xmax = "15:00", 
+            ymin = 0, ymax = 1250, alpha = .1) +
+   annotate("rect", xmin = "07:00", xmax = "10:00", 
+            ymin = 0, ymax = 1250, alpha = .1) +
+   annotate("text", x = "18:00", y = 1210, 
+            label = "Evening", hjust = "center", size = 2.5) +
+   annotate("text", x = "13:00", y = 1210, 
+            label = "Afternoon", hjust = "center", size = 2.5) +
+   annotate("text", x = 9.5, y = 1210, 
+            label = "Morning", hjust = "center", size = 2.5)
+ 
+ 
+ most_active_hours
+ 
+ #cleaning the environment, dropping the obsolete dataframe
+   rm(most_active_hours)
+```
+
+**Key Insights:** - We see that the top two most active groups( 3 and 4) of this sample peaks three times: around morning, afternoon and evening, it seems these two groups represent the 9-5 office working persons. Quartile 4 , have a small peak around 9:00am, and second peak around 2:00pm while its highest/busiest peak hour is 7:00pm. Quartile 3, its peak is around 8:00am, second peakis around 12:00pm, while its busiest hour is around 5:00pm - Quartile 2, one of the least active group has a small peak in the morning time, but it can be observed that the afternoon and evening peaks as stronger and clearer. - Quartile 1, the least active of the sample seems to have one small peak in the late morning.\
+\
+\
+
+##### **Sleep Trends**
+
+Lets look at the relationship of high intense activity time and sleep. We need look for any trends that those who are more active throughout the day sleep more than those who are less active? Could the duration of high activity have an impact on this relationship?
+
+I wouldn't be able to determine the precise difference between those two variables (intense workout and bedtime) because I don't know what time the person went to sleep. However, I can use the hour of maximum steps as a color code to indicate how much time they slept that day in relation to the number of steps they took.
+
+```{r Steps Vs Sleep }
+
+  colnames(sleep_data)[2] <- 'date' #renaming col2 from sleep_data to date
+
+ #calculate hour of max steps taken
+ max_steps_perhour <- steps_perhour %>%
+   group_by(id, activity_hour) %>%
+   summarise(max_step_perhour = hours[which.max(step_total)])
+ 
+ 
+ #change to integer so it is accepted in the legend
+ max_steps_perhour$max_step_perhour <- as.numeric(gsub("(.*?)\\s|\\:00*", "", max_steps_perhour$max_step_perhour))
+
+  #add total steps per day for each night of sleep
+ sleep_data <- inner_join(sleep_data, daily_activity[ , c("id", "activity_date", "total_steps")], by = c("id" = "id", "date" = "activity_date"))
+ 
+ sleep_data <- inner_join(sleep_data, max_steps_perhour, by = c("id" = "id", "date" = "activity_hour"))
+ 
+
+ sleep_vs_Steps_graph <- sleep_data %>% 
+   ggplot(aes(x = total_steps, y = total_minutes_asleep, color = max_step_perhour)) +
+   geom_point() +
+   scale_color_gradientn(colours = rainbow(5),
+                         breaks = c(seq(0, 20, 5)),
+                         labels = c(sprintf(
+                           "%s:00",
+                           seq(0, 20, 5)
+                         ))) +
+   geom_smooth(method = lm, alpha = 0.3) +
+   theme_linedraw() +
+   labs(title = "Sleep vs Steps (per day)", 
+        x = "Minutes Asleep", y = "Steps",
+        color = "Hour of Max Step") +
+   theme(plot.title = element_text(size = 12, hjust = 0.5),
+         axis.title.x = element_text(size = 10),
+         axis.title.y = element_text(size = 10),
+         legend.key.size = unit(5, 'mm'),
+         legend.title = element_text(size = 8),
+         legend.text = element_text(size = 6)) 
+ 
+ sleep_vs_Steps_graph
+ 
+  #cleaning the environment, dropping the obsolete dataframe
+   rm(sleep_vs_Steps_graph, max_steps_perhour)
+   
+```
+
+Here, Sleep and steps is compared for each participant, above scatter plot shows the comparison between total minutes asleep and total steps taken. In order to estimate whether a participant's most intense workout had an impact on their ability to sleep, I colored the hour in which they took the most steps. Surprisingly, a negative relationship between sleep and daily steps is revealed.This sample shows that as a person walks more, his/her sleep gets reduced.\
+
+Now, we have to look for any trends in days, do any particular day(i.e. weekends) effects the activities or users have the same routine throughout the week.
+
+
+```{r Sleep delays: Time in bed vs Time asleep (calculation)}
+
+ 
+ sleep_data$difference_bedtime <- sleep_data$total_time_in_bed -sleep_data$total_minutes_asleep
+ 
+ mean(sleep_data$total_time_in_bed - sleep_data$total_minutes_asleep)
+ 
+ 
+ #prepping the data for histogram (long format)
+ bedtime_histogram <- 
+   inner_join(sleep_data[c("id", "total_minutes_asleep", "total_time_in_bed")], monthly_user_activity[c("id", "sum_quartile")], by = "id") %>%
+   pivot_longer(!c(id, sum_quartile))
+ 
+ #summarizing data for labels
+ mean_difference <- sleep_data %>%
+   summarise(average_difference = round(mean(difference_bedtime), 2),
+             data_count = n(),
+             group_size = length(unique(id)))
+ 
+
+    bedtime_histogram
+    mean_difference
+    
+     daygraph <- daily_activity
+ daygraph <- daygraph [ -c(1,2,5,6,7,8,9,10,11,12,13,14,15,16) ]
+ 
+   daygraph <- daygraph %>%
+     group_by(day) %>%
+     summarise(
+     avg = mean(total_steps))
+   
+   
+ #cleaning the environment, dropping the obsolete dataframe
+ rm ( mean_difference)
+```
+
+
+```{r Day to Day comparision}
+
+ggplot(daygraph, aes(x= factor(day, levels = c("Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday")), y= avg)) +
+  geom_bar(position="dodge", stat="identity")+
+  theme_light()+
+    labs(title = "Day to Day comparision", 
+       x = "Weekdays", y = "Steps",
+       color = "Average Steps")+
+  geom_text(aes(label = signif(avg, digits = 3)),  vjust = 1.5, colour = "white")
+
+```
+
+The above bar graphs show that there is no pattern that suggests a rise or fall in user engagement, and user activities are unaffected by weekends. There is nothing more that can be analyzed from the sample of data provided; in order to conduct a more thorough analysis, more data would be required. According to current data Tuesdays and Saturdays are the busiest days.
+
+
+**Sleep delays: Time in bed vs Time asleep** 
+Now we need to analyze how much time is taken by a users from going to bed to going to sleep. we can analyze it by using the sleep dataframe. The average sleep delay is about 40 minutes. lets visualize and analyze it..
+
+```{r Sleep delays: Time in bed vs Time asleep }
+
+#Density Histogram of Time Asleep and In Bed
+
+ bedtime_histogram %>%
+   ggplot(aes(x = value, color = name, fill = name)) +
+   geom_histogram(aes(y = ..density..),  position = "identity", alpha = .5, binwidth = 35) + 
+   guides(col = FALSE) +
+   geom_density(alpha = 0, lwd = .6) +
+   theme_light() +
+     theme(legend.position = "top",
+         legend.key.size = unit(5, 'mm'),
+         text = element_text(size = 7))+
+   labs(title = "Time in bed vs Time asleep ", 
+        x = "Minutes", y = "Density") +
+   scale_fill_discrete(name = "Time (minutes)", labels = c("Asleep", "In Bed"))
+
+
+```
+
+\
+\
+
+## Step 6: Act
+
+#### **Key Insight:**
+
+**Use of feature** - The most used feature is step count. - Second most used feature is sleep monitoring. - The lease utilized feature is weight recording. - If we compare all the features Steps_count is used by around 100% population on regular basis, and weight_record is the least used feature by the user
+
+**Time Trends** - Most Active days are Tuesdays and Saturdays and least active days are Friday & Sundays. - Most of the users use the device for steps recording between following hours; 07:00-8:00am, 12:00pm-2:00pm and 5:00pm-7:00pm.
+
+**Sleep Trends** - People in this sample slept for shorter periods of time as they logged more steps. - The average sleep delay is about 40 minutes
+
+#### **Recommendations:**
+
+**Competitions** - Create a regional leader board (like Ludo star) with users' weekly/monthly step counts compared to one another for competitions. The top 3 users can receive gifts or coupons for discounts on future wearable purchases at the end of each term.
+
+**Notifications** - Provide notifications to the user regrading daily/weekly activity goal. In order to aid users in getting ready for bed, notifications could also be sent an hour beforehand.
+
+**Referrals** - Include a referral program so that existing wearable users can get progressively bigger discounts on goods or future wearable purchases based on how many of their referrals buy a wearable.
+
+**User Engagement Feature** - develop some feature which will encourage use of the product to further your fitness goals i.e.Point system or Goals/streaks.
+
+To conclude, I wanted to help Bellabeat better understand its customer base and provide helpful advice so that customers can reach their fitness objectives. Following my suggestions will significantly increase customer engagement with our products and Bellabeat's long-term success.

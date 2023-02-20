@@ -1,0 +1,1943 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same} % disable monospaced font for URLs
+\hypersetup{
+  pdftitle={Bellabeat CaseStudy},
+  pdfauthor={Naveed Narejo},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{Bellabeat CaseStudy}
+\author{Naveed Narejo}
+\date{2023-02-15}
+
+\begin{document}
+\maketitle
+
+\hypertarget{google-data-analytics-capstone-bellabeat-case-study}{%
+\section{Google Data Analytics Capstone: Bellabeat Case
+Study:}\label{google-data-analytics-capstone-bellabeat-case-study}}
+
+The Bellabeat Marketing Analysis is the second case study of Google's
+Data Analytics Professional Certificate program. The case study requires
+the analyst to follow to the steps of the data analysis process (Ask,
+Prepare, Process, Analyze, Share, and Act) to analyze FitBit Fitness
+Tracker dataset.
+
+\hypertarget{step-1-ask}{%
+\subsection{Step 1: Ask}\label{step-1-ask}}
+
+\hypertarget{about-the-company}{%
+\subsubsection{About the Company :}\label{about-the-company}}
+
+Bellabeat is a high-tech company that manufactures health-focused smart
+products. Sršen used her background as an artist to develop beautifully
+designed technology that informs and inspires women around the world.
+Collecting data on activity, sleep, stress, and reproductive health has
+allowed Bellabeat to empower women with knowledge about their own health
+and habits.
+
+\hypertarget{key-stakeholders}{%
+\subparagraph{Key Stakeholders:}\label{key-stakeholders}}
+
+\begin{itemize}
+\tightlist
+\item
+  Urška Sršen: Bellabeat's co founder and Chief Creative Officer
+\item
+  Sando Mur: Mathematician and Bellabeat's co-founder
+\item
+  Bellabeat marketing analytics team: A team of data analysts
+  responsible for collecting, analyzing, and reporting data that helps
+  guide Bellabeat's marketing strategy
+\end{itemize}
+
+\hypertarget{business-task}{%
+\subsubsection{Business Task:}\label{business-task}}
+
+Unlock new growth opportunities by analyzing smart device fitness data
+and gaining insight into how consumers use their smart devices, which
+will help guide he marketing strategy for the company.
+
+\hypertarget{data-analysis-goal}{%
+\subparagraph{Data analysis goal:}\label{data-analysis-goal}}
+
+\begin{enumerate}
+\def\labelenumi{\arabic{enumi}.}
+\tightlist
+\item
+  What are some trends in smart device usage?
+\item
+  How could these trends apply to Bellabeat customers?
+\item
+  How could these trends help influence Bellabeat marketing strategy?
+\end{enumerate}
+
+\hypertarget{deliverables}{%
+\subsubsection{Deliverables:}\label{deliverables}}
+
+\begin{itemize}
+\tightlist
+\item
+  A clear summary of the business task
+\item
+  A description of all data sources used
+\item
+  Documentation of any cleaning or manipulation of data
+\item
+  A summary of your analysis
+\item
+  Supporting visualizations and key findings
+\item
+  Your top high-level content recommendations based on your analysis
+\end{itemize}
+
+\hypertarget{step-2-prepare}{%
+\subsection{Step 2: Prepare}\label{step-2-prepare}}
+
+Data Source: FitBit Fitness Tracker Data is used for the analysis. It is
+an open source data and is available on
+Kaggle.\href{https://www.kaggle.com/datasets/arashnic/fitbit}{Click here
+for Data.}
+
+The data set contains 18 CSV files organized in long format. Below is a
+breakdown of the data using the ROCCC approach: - - Reliability - LOW:
+The data comes from 32 users only - Original - LOW: The data is
+collected by third party. - Comprehensive - MED: The dataset contains
+multiple fields on daily activity intensity, calories used, daily steps
+taken, daily sleep time and weight record. - Current - LOW: This data is
+from 2016. The data is not current. - Cited - LOW: Data was collected
+from a third party, therefore unknown.
+
+\hypertarget{installing-r-package}{%
+\subsubsection{Installing R-Package}\label{installing-r-package}}
+
+Installing the R-packages needed for the required analysis.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \CommentTok{\# install.packages("tidyverse")   \#   Functions: dplyr(), tidyr() , stringr(), tibble(), readr(), purrr(), ggplot2() )}
+  \CommentTok{\# install.packages("janitor")     \#   Functions: clean\_names(), remove\_empty(), get\_dupes() )}
+  \CommentTok{\# install.packages("lubridate")   \#   Functions: datetime fuctions }
+  \CommentTok{\# install.packages("plotly")      \#   Functions: plot\_ly()}
+  \CommentTok{\# install.packages("dplyr")       \#   Functions: pipes()}
+  \CommentTok{\# install.packages("ggalluvial")  \#   Functions: ggplot2 extension }
+  \CommentTok{\# install.packages("devtools")    \#   Functions: load\_all(), document(), test(), install\_github()}
+  \CommentTok{\# devtools::install\_github("kassambara/ggpubr") \#   Functions: to break in quartiles in graphs}
+  \CommentTok{\# install.packages("gginnards")   \#   Functions: ggplot2 extension for static and geometric analysis}
+  \CommentTok{\# install.packages("scales")      \#   Functions: labeling as percents, dollars or scientific notation}
+\end{Highlighting}
+\end{Shaded}
+
+\hypertarget{loading-r-environment}{%
+\subsection{Loading R Environment}\label{loading-r-environment}}
+
+Loading the packages needed for the data processing and required
+analysis.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \FunctionTok{library}\NormalTok{(tidyverse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'tidyverse' was built under R version 4.2.2
+\end{verbatim}
+
+\begin{verbatim}
+## -- Attaching packages --------------------------------------- tidyverse 1.3.2 --
+## v ggplot2 3.3.6      v purrr   0.3.5 
+## v tibble  3.1.8      v dplyr   1.0.10
+## v tidyr   1.2.1      v stringr 1.4.1 
+## v readr   2.1.3      v forcats 0.5.2
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'dplyr' was built under R version 4.2.2
+\end{verbatim}
+
+\begin{verbatim}
+## -- Conflicts ------------------------------------------ tidyverse_conflicts() --
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \FunctionTok{library}\NormalTok{(janitor)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'janitor' was built under R version 4.2.2
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'janitor'
+## 
+## The following objects are masked from 'package:stats':
+## 
+##     chisq.test, fisher.test
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \FunctionTok{library}\NormalTok{(lubridate)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'lubridate' was built under R version 4.2.2
+\end{verbatim}
+
+\begin{verbatim}
+## Loading required package: timechange
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: package 'timechange' was built under R version 4.2.2
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'lubridate'
+## 
+## The following objects are masked from 'package:base':
+## 
+##     date, intersect, setdiff, union
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \FunctionTok{library}\NormalTok{(plotly)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'plotly' was built under R version 4.2.2
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'plotly'
+## 
+## The following object is masked from 'package:ggplot2':
+## 
+##     last_plot
+## 
+## The following object is masked from 'package:stats':
+## 
+##     filter
+## 
+## The following object is masked from 'package:graphics':
+## 
+##     layout
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \FunctionTok{library}\NormalTok{(dplyr)}
+  \FunctionTok{library}\NormalTok{(ggalluvial)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'ggalluvial' was built under R version 4.2.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \FunctionTok{library}\NormalTok{(ggpubr)}
+  \FunctionTok{library}\NormalTok{(gghighlight)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'gghighlight' was built under R version 4.2.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \FunctionTok{library}\NormalTok{(gginnards)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'gginnards' was built under R version 4.2.2
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \FunctionTok{library}\NormalTok{(scales)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: package 'scales' was built under R version 4.2.2
+\end{verbatim}
+
+\begin{verbatim}
+## 
+## Attaching package: 'scales'
+## 
+## The following object is masked from 'package:purrr':
+## 
+##     discard
+## 
+## The following object is masked from 'package:readr':
+## 
+##     col_factor
+\end{verbatim}
+
+\hypertarget{step-3-process}{%
+\subsection{Step 3: Process}\label{step-3-process}}
+
+\hypertarget{importing-files}{%
+\subsubsection{Importing files}\label{importing-files}}
+
+For this analysis we will be using these four datasets:
+
+\begin{itemize}
+\tightlist
+\item
+  dailyActivity\_merged.csv
+\item
+  sleepDay\_merged.csv
+\item
+  weightLogInfo\_merged.csv
+\item
+  hourlysteps\_merged.csv
+\end{itemize}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ daily\_activity }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\AttributeTok{file =} \StringTok{"D:}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{Fitness Tracker CaseStudy}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{Fitabase Data 4.12.16{-}5.12.16}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{dailyActivity\_merged.csv"}\NormalTok{)}\SpecialCharTok{\%\textgreater{}\%}
+ \FunctionTok{remove\_empty}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## value for "which" not specified, defaulting to c("rows", "cols")
+\end{verbatim}
+
+\begin{verbatim}
+## Rows: 940 Columns: 16
+## -- Column specification --------------------------------------------------------
+## Delimiter: ","
+## chr  (2): ActivityDate, Day
+## dbl (14): Id, TotalSteps, TotalDistance, TrackerDistance, LoggedActivitiesDi...
+## 
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ steps\_perhour }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\AttributeTok{file =} \StringTok{"D:}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{Fitness Tracker CaseStudy}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{Fitabase Data 4.12.16{-}5.12.16}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{hourlySteps\_merged.csv"}\NormalTok{)}\SpecialCharTok{\%\textgreater{}\%}
+ \FunctionTok{remove\_empty}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## value for "which" not specified, defaulting to c("rows", "cols")
+## Rows: 22099 Columns: 4-- Column specification --------------------------------------------------------
+## Delimiter: ","
+## chr  (1): ActivityHour
+## dbl  (2): Id, StepTotal
+## time (1): Hours
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ sleep\_data }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\AttributeTok{file =} \StringTok{"D:}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{Fitness Tracker CaseStudy}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{Fitabase Data 4.12.16{-}5.12.16}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{sleepDay\_merged.csv"}\NormalTok{)}\SpecialCharTok{\%\textgreater{}\%}
+ \FunctionTok{remove\_empty}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## value for "which" not specified, defaulting to c("rows", "cols")
+## Rows: 413 Columns: 5-- Column specification --------------------------------------------------------
+## Delimiter: ","
+## chr (1): SleepDay
+## dbl (4): Id, TotalSleepRecords, TotalMinutesAsleep, TotalTimeInBed
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{  weight\_data }\OtherTok{\textless{}{-}} \FunctionTok{read\_csv}\NormalTok{(}\AttributeTok{file =} \StringTok{"D:}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{Fitness Tracker CaseStudy}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{Fitabase Data 4.12.16{-}5.12.16}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{weightLogInfo\_merged.csv"}\NormalTok{)}\SpecialCharTok{\%\textgreater{}\%}
+ \FunctionTok{remove\_empty}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## value for "which" not specified, defaulting to c("rows", "cols")
+## Rows: 67 Columns: 8-- Column specification --------------------------------------------------------
+## Delimiter: ","
+## chr (1): Date
+## dbl (6): Id, WeightKg, WeightPounds, Fat, BMI, LogId
+## lgl (1): IsManualReport
+## i Use `spec()` to retrieve the full column specification for this data.
+## i Specify the column types or set `show_col_types = FALSE` to quiet this message.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+     \FunctionTok{head}\NormalTok{(daily\_activity) }\CommentTok{\# 1st glimpse of the data}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 16
+##         Id Activ~1 Day   Total~2 Total~3 Track~4 Logge~5 VeryA~6 Moder~7 Light~8
+##      <dbl> <chr>   <chr>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>
+## 1   1.50e9 4/12/2~ Tues~   13162    8.5     8.5        0    1.88   0.550    6.06
+## 2   1.50e9 4/13/2~ Wedn~   10735    6.97    6.97       0    1.57   0.690    4.71
+## 3   1.50e9 4/14/2~ Thur~   10460    6.74    6.74       0    2.44   0.400    3.91
+## 4   1.50e9 4/15/2~ Frid~    9762    6.28    6.28       0    2.14   1.26     2.83
+## 5   1.50e9 4/16/2~ Satu~   12669    8.16    8.16       0    2.71   0.410    5.04
+## 6   1.50e9 4/17/2~ Sund~    9705    6.48    6.48       0    3.19   0.780    2.51
+## # ... with 6 more variables: SedentaryActiveDistance <dbl>,
+## #   VeryActiveMinutes <dbl>, FairlyActiveMinutes <dbl>,
+## #   LightlyActiveMinutes <dbl>, SedentaryMinutes <dbl>, Calories <dbl>, and
+## #   abbreviated variable names 1: ActivityDate, 2: TotalSteps,
+## #   3: TotalDistance, 4: TrackerDistance, 5: LoggedActivitiesDistance,
+## #   6: VeryActiveDistance, 7: ModeratelyActiveDistance, 8: LightActiveDistance
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+     \FunctionTok{head}\NormalTok{(weight\_data) }\CommentTok{\# 1st glimpse of the data}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 8
+##           Id Date                  WeightKg Weight~1   Fat   BMI IsMan~2   LogId
+##        <dbl> <chr>                    <dbl>    <dbl> <dbl> <dbl> <lgl>     <dbl>
+## 1 1503960366 5/2/2016 11:59:59 PM      52.6     116.    22  22.6 TRUE    1.46e12
+## 2 1503960366 5/3/2016 11:59:59 PM      52.6     116.    NA  22.6 TRUE    1.46e12
+## 3 1927972279 4/13/2016 1:08:52 AM     134.      294.    NA  47.5 FALSE   1.46e12
+## 4 2873212765 4/21/2016 11:59:59 PM     56.7     125.    NA  21.5 TRUE    1.46e12
+## 5 2873212765 5/12/2016 11:59:59 PM     57.3     126.    NA  21.7 TRUE    1.46e12
+## 6 4319703577 4/17/2016 11:59:59 PM     72.4     160.    25  27.5 TRUE    1.46e12
+## # ... with abbreviated variable names 1: WeightPounds, 2: IsManualReport
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+     \FunctionTok{head}\NormalTok{(sleep\_data) }\CommentTok{\# 1st glimpse of the data}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 5
+##           Id SleepDay              TotalSleepRecords TotalMinutesAsleep TotalT~1
+##        <dbl> <chr>                             <dbl>              <dbl>    <dbl>
+## 1 1503960366 4/12/2016 12:00:00 AM                 1                327      346
+## 2 1503960366 4/13/2016 12:00:00 AM                 2                384      407
+## 3 1503960366 4/15/2016 12:00:00 AM                 1                412      442
+## 4 1503960366 4/16/2016 12:00:00 AM                 2                340      367
+## 5 1503960366 4/17/2016 12:00:00 AM                 1                700      712
+## 6 1503960366 4/19/2016 12:00:00 AM                 1                304      320
+## # ... with abbreviated variable name 1: TotalTimeInBed
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+     \FunctionTok{head}\NormalTok{(weight\_data) }\CommentTok{\# 1st glimpse of the data}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 6 x 8
+##           Id Date                  WeightKg Weight~1   Fat   BMI IsMan~2   LogId
+##        <dbl> <chr>                    <dbl>    <dbl> <dbl> <dbl> <lgl>     <dbl>
+## 1 1503960366 5/2/2016 11:59:59 PM      52.6     116.    22  22.6 TRUE    1.46e12
+## 2 1503960366 5/3/2016 11:59:59 PM      52.6     116.    NA  22.6 TRUE    1.46e12
+## 3 1927972279 4/13/2016 1:08:52 AM     134.      294.    NA  47.5 FALSE   1.46e12
+## 4 2873212765 4/21/2016 11:59:59 PM     56.7     125.    NA  21.5 TRUE    1.46e12
+## 5 2873212765 5/12/2016 11:59:59 PM     57.3     126.    NA  21.7 TRUE    1.46e12
+## 6 4319703577 4/17/2016 11:59:59 PM     72.4     160.    25  27.5 TRUE    1.46e12
+## # ... with abbreviated variable names 1: WeightPounds, 2: IsManualReport
+\end{verbatim}
+
+To make sure that everything required is imported correctly, we need to
+verify by using View() and head() functions. Now that I've imported all
+of the data frames that I'll be using, I can start cleaning up the data.
+I will look at each data frame to familiarize myself with the data and
+check for errors.I'll be analyzing each file separately.
+
+\hypertarget{cleaning-formatting-organizing-daily-activity-dataframe}{%
+\subparagraph{\texorpdfstring{\textbf{Cleaning, Formatting \&
+Organizing: Daily Activity
+dataframe}}{Cleaning, Formatting \& Organizing: Daily Activity dataframe}}\label{cleaning-formatting-organizing-daily-activity-dataframe}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \FunctionTok{View}\NormalTok{(daily\_activity) }\CommentTok{\#viewing the complete dataset}
+ \FunctionTok{str}\NormalTok{(daily\_activity) }\CommentTok{\#inspecting structure of data i.e data types}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## tibble [940 x 16] (S3: tbl_df/tbl/data.frame)
+##  $ Id                      : num [1:940] 1.5e+09 1.5e+09 1.5e+09 1.5e+09 1.5e+09 ...
+##  $ ActivityDate            : chr [1:940] "4/12/2016" "4/13/2016" "4/14/2016" "4/15/2016" ...
+##  $ Day                     : chr [1:940] "Tuesday" "Wednesday" "Thursday" "Friday" ...
+##  $ TotalSteps              : num [1:940] 13162 10735 10460 9762 12669 ...
+##  $ TotalDistance           : num [1:940] 8.5 6.97 6.74 6.28 8.16 ...
+##  $ TrackerDistance         : num [1:940] 8.5 6.97 6.74 6.28 8.16 ...
+##  $ LoggedActivitiesDistance: num [1:940] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ VeryActiveDistance      : num [1:940] 1.88 1.57 2.44 2.14 2.71 ...
+##  $ ModeratelyActiveDistance: num [1:940] 0.55 0.69 0.4 1.26 0.41 ...
+##  $ LightActiveDistance     : num [1:940] 6.06 4.71 3.91 2.83 5.04 ...
+##  $ SedentaryActiveDistance : num [1:940] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ VeryActiveMinutes       : num [1:940] 25 21 30 29 36 38 42 50 28 19 ...
+##  $ FairlyActiveMinutes     : num [1:940] 13 19 11 34 10 20 16 31 12 8 ...
+##  $ LightlyActiveMinutes    : num [1:940] 328 217 181 209 221 164 233 264 205 211 ...
+##  $ SedentaryMinutes        : num [1:940] 728 776 1218 726 773 ...
+##  $ Calories                : num [1:940] 1985 1797 1776 1745 1863 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \FunctionTok{colnames}\NormalTok{(daily\_activity)  }\CommentTok{\#checking column names}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "Id"                       "ActivityDate"            
+##  [3] "Day"                      "TotalSteps"              
+##  [5] "TotalDistance"            "TrackerDistance"         
+##  [7] "LoggedActivitiesDistance" "VeryActiveDistance"      
+##  [9] "ModeratelyActiveDistance" "LightActiveDistance"     
+## [11] "SedentaryActiveDistance"  "VeryActiveMinutes"       
+## [13] "FairlyActiveMinutes"      "LightlyActiveMinutes"    
+## [15] "SedentaryMinutes"         "Calories"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ daily\_activity }\OtherTok{\textless{}{-}} \FunctionTok{clean\_names}\NormalTok{(daily\_activity) }\CommentTok{\# cleaning column names to snake format}
+ \FunctionTok{get\_dupes}\NormalTok{(daily\_activity) }\CommentTok{\#no duplicate found}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## No variable names specified - using all columns.
+\end{verbatim}
+
+\begin{verbatim}
+## No duplicate combinations found of: id, activity_date, day, total_steps, total_distance, tracker_distance, logged_activities_distance, very_active_distance, moderately_active_distance, ... and 7 other variables
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 0 x 17
+## # ... with 17 variables: id <dbl>, activity_date <chr>, day <chr>,
+## #   total_steps <dbl>, total_distance <dbl>, tracker_distance <dbl>,
+## #   logged_activities_distance <dbl>, very_active_distance <dbl>,
+## #   moderately_active_distance <dbl>, light_active_distance <dbl>,
+## #   sedentary_active_distance <dbl>, very_active_minutes <dbl>,
+## #   fairly_active_minutes <dbl>, lightly_active_minutes <dbl>,
+## #   sedentary_minutes <dbl>, calories <dbl>, dupe_count <int>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ daily\_activity}\SpecialCharTok{$}\NormalTok{activity\_date }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(}\FunctionTok{strptime}\NormalTok{(daily\_activity}\SpecialCharTok{$}\NormalTok{activity\_date, }\StringTok{"\%m/\%d/\%Y"}\NormalTok{)) }\CommentTok{\# Changing dates to date format. Note: Date here is character, however it should be date}
+ \FunctionTok{str}\NormalTok{(daily\_activity) }\CommentTok{\# rechecking data for changes verification}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## tibble [940 x 16] (S3: tbl_df/tbl/data.frame)
+##  $ id                        : num [1:940] 1.5e+09 1.5e+09 1.5e+09 1.5e+09 1.5e+09 ...
+##  $ activity_date             : Date[1:940], format: "2016-04-12" "2016-04-13" ...
+##  $ day                       : chr [1:940] "Tuesday" "Wednesday" "Thursday" "Friday" ...
+##  $ total_steps               : num [1:940] 13162 10735 10460 9762 12669 ...
+##  $ total_distance            : num [1:940] 8.5 6.97 6.74 6.28 8.16 ...
+##  $ tracker_distance          : num [1:940] 8.5 6.97 6.74 6.28 8.16 ...
+##  $ logged_activities_distance: num [1:940] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ very_active_distance      : num [1:940] 1.88 1.57 2.44 2.14 2.71 ...
+##  $ moderately_active_distance: num [1:940] 0.55 0.69 0.4 1.26 0.41 ...
+##  $ light_active_distance     : num [1:940] 6.06 4.71 3.91 2.83 5.04 ...
+##  $ sedentary_active_distance : num [1:940] 0 0 0 0 0 0 0 0 0 0 ...
+##  $ very_active_minutes       : num [1:940] 25 21 30 29 36 38 42 50 28 19 ...
+##  $ fairly_active_minutes     : num [1:940] 13 19 11 34 10 20 16 31 12 8 ...
+##  $ lightly_active_minutes    : num [1:940] 328 217 181 209 221 164 233 264 205 211 ...
+##  $ sedentary_minutes         : num [1:940] 728 776 1218 726 773 ...
+##  $ calories                  : num [1:940] 1985 1797 1776 1745 1863 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{daily\_activity }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{summarise}\NormalTok{(}\AttributeTok{total\_users =} \FunctionTok{n\_distinct}\NormalTok{(daily\_activity}\SpecialCharTok{$}\NormalTok{id)) }\CommentTok{\#total number of unique users}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 1
+##   total_users
+##         <int>
+## 1          33
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{daily\_activity }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{select}\NormalTok{(total\_steps,}
+\NormalTok{total\_distance,}
+\NormalTok{calories) }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{summary}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   total_steps    total_distance      calories   
+##  Min.   :    0   Min.   : 0.000   Min.   :   0  
+##  1st Qu.: 3790   1st Qu.: 2.620   1st Qu.:1828  
+##  Median : 7406   Median : 5.245   Median :2134  
+##  Mean   : 7638   Mean   : 5.490   Mean   :2304  
+##  3rd Qu.:10727   3rd Qu.: 7.713   3rd Qu.:2793  
+##  Max.   :36019   Max.   :28.030   Max.   :4900
+\end{verbatim}
+
+In the above chunks the Daily Activity dataframe is analyzed for blanks
+NA, Data type error, Irrelevant/Inconsistent formatting and duplicate.
+There were no duplicates found the dataframe, all the column names are
+converted in to snake\_format, and data type of DATE column changed from
+Character to Date. Here we also familiarize ourselves with the data a
+bit more i.e.~we look for Min/Avg/Max distance traveled, steps walked
+and calories burned by all the users during 31 days.
+
+\hypertarget{cleaning-formatting-organizing-steps-per-hour-dataframe}{%
+\subparagraph{\texorpdfstring{\textbf{Cleaning, Formatting \&
+Organizing: Steps Per Hour
+dataframe}}{Cleaning, Formatting \& Organizing: Steps Per Hour dataframe}}\label{cleaning-formatting-organizing-steps-per-hour-dataframe}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \FunctionTok{View}\NormalTok{(steps\_perhour) }\CommentTok{\#viewing the complete dataset}
+ \FunctionTok{str}\NormalTok{(steps\_perhour) }\CommentTok{\#inspecting structure of data i.e data types. Note: Date here is character, however it should be date}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## tibble [22,099 x 4] (S3: tbl_df/tbl/data.frame)
+##  $ Id          : num [1:22099] 1.5e+09 1.5e+09 1.5e+09 1.5e+09 1.5e+09 ...
+##  $ ActivityHour: chr [1:22099] "4/12/2016 0:00" "4/12/2016 1:00" "4/12/2016 2:00" "4/12/2016 3:00" ...
+##  $ Hours       : 'hms' num [1:22099] 00:00:00 01:00:00 02:00:00 03:00:00 ...
+##   ..- attr(*, "units")= chr "secs"
+##  $ StepTotal   : num [1:22099] 373 160 151 0 0 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \FunctionTok{colnames}\NormalTok{(steps\_perhour)  }\CommentTok{\#checking column names}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Id"           "ActivityHour" "Hours"        "StepTotal"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ steps\_perhour }\OtherTok{\textless{}{-}} \FunctionTok{clean\_names}\NormalTok{(steps\_perhour) }\CommentTok{\# cleaning column names to snake format}
+ \FunctionTok{get\_dupes}\NormalTok{(steps\_perhour) }\CommentTok{\#no duplicate found}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## No variable names specified - using all columns.
+\end{verbatim}
+
+\begin{verbatim}
+## No duplicate combinations found of: id, activity_hour, hours, step_total
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 0 x 5
+## # ... with 5 variables: id <dbl>, activity_hour <chr>, hours <time>,
+## #   step_total <dbl>, dupe_count <int>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ steps\_perhour}\SpecialCharTok{$}\NormalTok{activity\_hour }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(steps\_perhour}\SpecialCharTok{$}\NormalTok{activity\_hour, }\StringTok{"\%m/\%d/\%Y"}\NormalTok{)  }\CommentTok{\# Changing dates to date format. Note: Date here is character, however it should be date}
+ \FunctionTok{str}\NormalTok{(steps\_perhour) }\CommentTok{\# rechecking data for changes verification}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## tibble [22,099 x 4] (S3: tbl_df/tbl/data.frame)
+##  $ id           : num [1:22099] 1.5e+09 1.5e+09 1.5e+09 1.5e+09 1.5e+09 ...
+##  $ activity_hour: Date[1:22099], format: "2016-04-12" "2016-04-12" ...
+##  $ hours        : 'hms' num [1:22099] 00:00:00 01:00:00 02:00:00 03:00:00 ...
+##   ..- attr(*, "units")= chr "secs"
+##  $ step_total   : num [1:22099] 373 160 151 0 0 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{steps\_perhour }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{summarise}\NormalTok{(}\AttributeTok{total\_users =} \FunctionTok{n\_distinct}\NormalTok{(steps\_perhour}\SpecialCharTok{$}\NormalTok{id)) }\CommentTok{\#total number of unique users}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 1
+##   total_users
+##         <int>
+## 1          33
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{steps\_perhour }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{select}\NormalTok{(step\_total) }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{summary}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    step_total     
+##  Min.   :    0.0  
+##  1st Qu.:    0.0  
+##  Median :   40.0  
+##  Mean   :  320.2  
+##  3rd Qu.:  357.0  
+##  Max.   :10554.0
+\end{verbatim}
+
+In the above chunks the steps per hour dataframe is analyzed for blanks
+NA, Data type error, Irrelevant/Inconsistent formatting and duplicate.
+There were no duplicates found the dataframe, all the column names are
+converted in to snake\_format, and data type of DATE column changed from
+Character to Date. Here we also familiarize ourselves with the data a
+bit more i.e.~we look for Min/Avg/Max steps taken by the users.
+
+\hypertarget{cleaning-formatting-organizing-sleep-dataframe}{%
+\subparagraph{\texorpdfstring{\textbf{Cleaning, Formatting \&
+Organizing: Sleep
+dataframe}}{Cleaning, Formatting \& Organizing: Sleep dataframe}}\label{cleaning-formatting-organizing-sleep-dataframe}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \FunctionTok{View}\NormalTok{(sleep\_data) }\CommentTok{\#viewing the complete dataset}
+ \FunctionTok{str}\NormalTok{(sleep\_data) }\CommentTok{\#inspecting structure of data i.e data types. Note: Date here is character, however it should be date}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## tibble [413 x 5] (S3: tbl_df/tbl/data.frame)
+##  $ Id                : num [1:413] 1.5e+09 1.5e+09 1.5e+09 1.5e+09 1.5e+09 ...
+##  $ SleepDay          : chr [1:413] "4/12/2016 12:00:00 AM" "4/13/2016 12:00:00 AM" "4/15/2016 12:00:00 AM" "4/16/2016 12:00:00 AM" ...
+##  $ TotalSleepRecords : num [1:413] 1 2 1 2 1 1 1 1 1 1 ...
+##  $ TotalMinutesAsleep: num [1:413] 327 384 412 340 700 304 360 325 361 430 ...
+##  $ TotalTimeInBed    : num [1:413] 346 407 442 367 712 320 377 364 384 449 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \FunctionTok{colnames}\NormalTok{(sleep\_data)  }\CommentTok{\#checking column names}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Id"                 "SleepDay"           "TotalSleepRecords" 
+## [4] "TotalMinutesAsleep" "TotalTimeInBed"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ sleep\_data }\OtherTok{\textless{}{-}} \FunctionTok{clean\_names}\NormalTok{(sleep\_data) }\CommentTok{\# cleaning column names to snake format}
+\NormalTok{ sleep\_data}\SpecialCharTok{$}\NormalTok{sleep\_day }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(}\FunctionTok{strptime}\NormalTok{(sleep\_data}\SpecialCharTok{$}\NormalTok{sleep\_day, }\StringTok{"\%m/\%d/\%Y"}\NormalTok{)) }\CommentTok{\# Changing dates to date format. Note: Date here is character, however it should be date}
+ \FunctionTok{get\_dupes}\NormalTok{(sleep\_data) }\CommentTok{\# 6 duplicate found }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## No variable names specified - using all columns.
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 6 x 6
+##           id sleep_day  total_sleep_records total_minutes_asleep total~1 dupe_~2
+##        <dbl> <date>                   <dbl>                <dbl>   <dbl>   <int>
+## 1 4388161847 2016-05-05                   1                  471     495       2
+## 2 4388161847 2016-05-05                   1                  471     495       2
+## 3 4702921684 2016-05-07                   1                  520     543       2
+## 4 4702921684 2016-05-07                   1                  520     543       2
+## 5 8378563200 2016-04-25                   1                  388     402       2
+## 6 8378563200 2016-04-25                   1                  388     402       2
+## # ... with abbreviated variable names 1: total_time_in_bed, 2: dupe_count
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ sleep\_duplicates }\OtherTok{\textless{}{-}} \FunctionTok{get\_dupes}\NormalTok{(sleep\_data) }\CommentTok{\# duplicates saved to remove later}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## No variable names specified - using all columns.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \FunctionTok{str}\NormalTok{(sleep\_data) }\CommentTok{\# rechecking data for changes verification}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## tibble [413 x 5] (S3: tbl_df/tbl/data.frame)
+##  $ id                  : num [1:413] 1.5e+09 1.5e+09 1.5e+09 1.5e+09 1.5e+09 ...
+##  $ sleep_day           : Date[1:413], format: "2016-04-12" "2016-04-13" ...
+##  $ total_sleep_records : num [1:413] 1 2 1 2 1 1 1 1 1 1 ...
+##  $ total_minutes_asleep: num [1:413] 327 384 412 340 700 304 360 325 361 430 ...
+##  $ total_time_in_bed   : num [1:413] 346 407 442 367 712 320 377 364 384 449 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \CommentTok{\#removing duplicates using anti{-}join}
+\NormalTok{ sleep\_data }\OtherTok{\textless{}{-}} \FunctionTok{anti\_join}\NormalTok{(sleep\_data, sleep\_duplicates)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Joining, by = c("id", "sleep_day", "total_sleep_records",
+## "total_minutes_asleep", "total_time_in_bed")
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \FunctionTok{rm}\NormalTok{(sleep\_duplicates)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sleep\_data }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{summarise}\NormalTok{(}\AttributeTok{total\_users =} \FunctionTok{n\_distinct}\NormalTok{(sleep\_data}\SpecialCharTok{$}\NormalTok{id)) }\CommentTok{\#total number of unique users}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 1
+##   total_users
+##         <int>
+## 1          24
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{sleep\_data }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{select}\NormalTok{(}
+\NormalTok{total\_minutes\_asleep,}
+\NormalTok{total\_time\_in\_bed) }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{summary}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  total_minutes_asleep total_time_in_bed
+##  Min.   : 58.0        Min.   : 61.0    
+##  1st Qu.:361.0        1st Qu.:404.5    
+##  Median :432.0        Median :463.0    
+##  Mean   :418.9        Mean   :458.3    
+##  3rd Qu.:490.0        3rd Qu.:526.0    
+##  Max.   :796.0        Max.   :961.0
+\end{verbatim}
+
+In the above chunks the sleep dataframe is analyzed for its blanks, NA,
+Data type error, Irrelevant/Inconsistent formatting and duplicate. We
+looked for duplicates and a total of 6 duplicates found, I saved it as a
+separate data frame and removed the duplicate by using Anti\_Join. Here
+all the column names are converted in to snake\_format, and data type of
+DATE column changed from Character to Date. Here we also familiarize
+ourselves with the data a bit more i.e.~We look for Min/Avg/Max
+minutes\_asleep and time\_in\_bed.
+
+\hypertarget{cleaning-formatting-organizing-weight-dataframe}{%
+\subparagraph{\texorpdfstring{\textbf{Cleaning, Formatting \&
+Organizing: Weight
+dataframe}}{Cleaning, Formatting \& Organizing: Weight dataframe}}\label{cleaning-formatting-organizing-weight-dataframe}}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \FunctionTok{View}\NormalTok{(weight\_data) }\CommentTok{\#viewing the complete dataset}
+ \FunctionTok{str}\NormalTok{(weight\_data) }\CommentTok{\#inspecting structure of data i.e data types. Note: Date here is character, however it should be date}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## tibble [67 x 8] (S3: tbl_df/tbl/data.frame)
+##  $ Id            : num [1:67] 1.50e+09 1.50e+09 1.93e+09 2.87e+09 2.87e+09 ...
+##  $ Date          : chr [1:67] "5/2/2016 11:59:59 PM" "5/3/2016 11:59:59 PM" "4/13/2016 1:08:52 AM" "4/21/2016 11:59:59 PM" ...
+##  $ WeightKg      : num [1:67] 52.6 52.6 133.5 56.7 57.3 ...
+##  $ WeightPounds  : num [1:67] 116 116 294 125 126 ...
+##  $ Fat           : num [1:67] 22 NA NA NA NA 25 NA NA NA NA ...
+##  $ BMI           : num [1:67] 22.6 22.6 47.5 21.5 21.7 ...
+##  $ IsManualReport: logi [1:67] TRUE TRUE FALSE TRUE TRUE TRUE ...
+##  $ LogId         : num [1:67] 1.46e+12 1.46e+12 1.46e+12 1.46e+12 1.46e+12 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \FunctionTok{colnames}\NormalTok{(weight\_data)  }\CommentTok{\#checking column names}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Id"             "Date"           "WeightKg"       "WeightPounds"  
+## [5] "Fat"            "BMI"            "IsManualReport" "LogId"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ weight\_data }\OtherTok{\textless{}{-}} \FunctionTok{clean\_names}\NormalTok{(weight\_data) }\CommentTok{\# cleaning column names to snake format}
+\NormalTok{ weight\_data}\SpecialCharTok{$}\NormalTok{date }\OtherTok{\textless{}{-}} \FunctionTok{as.Date}\NormalTok{(}\FunctionTok{strptime}\NormalTok{(weight\_data}\SpecialCharTok{$}\NormalTok{date, }\StringTok{"\%m/\%d/\%Y"}\NormalTok{))  }\CommentTok{\# Changing dates to date format. Note: Date here is character, however it should be date}
+ \FunctionTok{get\_dupes}\NormalTok{(weight\_data) }\CommentTok{\# no duplicate found }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## No variable names specified - using all columns.
+\end{verbatim}
+
+\begin{verbatim}
+## No duplicate combinations found of: id, date, weight_kg, weight_pounds, fat, bmi, is_manual_report, log_id
+\end{verbatim}
+
+\begin{verbatim}
+## # A tibble: 0 x 9
+## # ... with 9 variables: id <dbl>, date <date>, weight_kg <dbl>,
+## #   weight_pounds <dbl>, fat <dbl>, bmi <dbl>, is_manual_report <lgl>,
+## #   log_id <dbl>, dupe_count <int>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \FunctionTok{str}\NormalTok{(weight\_data) }\CommentTok{\# rechecking data for changes verification}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## tibble [67 x 8] (S3: tbl_df/tbl/data.frame)
+##  $ id              : num [1:67] 1.50e+09 1.50e+09 1.93e+09 2.87e+09 2.87e+09 ...
+##  $ date            : Date[1:67], format: "2016-05-02" "2016-05-03" ...
+##  $ weight_kg       : num [1:67] 52.6 52.6 133.5 56.7 57.3 ...
+##  $ weight_pounds   : num [1:67] 116 116 294 125 126 ...
+##  $ fat             : num [1:67] 22 NA NA NA NA 25 NA NA NA NA ...
+##  $ bmi             : num [1:67] 22.6 22.6 47.5 21.5 21.7 ...
+##  $ is_manual_report: logi [1:67] TRUE TRUE FALSE TRUE TRUE TRUE ...
+##  $ log_id          : num [1:67] 1.46e+12 1.46e+12 1.46e+12 1.46e+12 1.46e+12 ...
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{weight\_data }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{summarise}\NormalTok{(}\AttributeTok{total\_users =} \FunctionTok{n\_distinct}\NormalTok{(weight\_data}\SpecialCharTok{$}\NormalTok{id)) }\CommentTok{\#total number of unique users}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 1
+##   total_users
+##         <int>
+## 1           8
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{weight\_data }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{select}\NormalTok{(}
+\NormalTok{weight\_kg,}
+\NormalTok{weight\_pounds,}
+\NormalTok{fat) }\SpecialCharTok{\%\textgreater{}\%}
+\FunctionTok{summary}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    weight_kg      weight_pounds        fat       
+##  Min.   : 52.60   Min.   :116.0   Min.   :22.00  
+##  1st Qu.: 61.40   1st Qu.:135.4   1st Qu.:22.75  
+##  Median : 62.50   Median :137.8   Median :23.50  
+##  Mean   : 72.04   Mean   :158.8   Mean   :23.50  
+##  3rd Qu.: 85.05   3rd Qu.:187.5   3rd Qu.:24.25  
+##  Max.   :133.50   Max.   :294.3   Max.   :25.00  
+##                                   NA's   :65
+\end{verbatim}
+
+In the above chunks the weight dataframe is analyzed for blanks, NA,
+Data type error, Irrelevant/Inconsistent formatting and duplicate.There
+were no duplicates found the dataframe, all the column names are
+converted in to snake\_format, and data type of DATE column changed from
+Character to Date. Here we also familiarize ourselves with the data a
+bit more i.e.~we look for Min/Avg/Max weight in KGs and pounds.
+
+\hypertarget{step-4-5-analyze-share}{%
+\subsection{Step 4-5: Analyze \& Share}\label{step-4-5-analyze-share}}
+
+\hypertarget{analyzing-steps-data---creating-total-steps-histograms}{%
+\subparagraph{\texorpdfstring{\textbf{Analyzing: Steps Data - Creating
+Total Steps
+Histograms}}{Analyzing: Steps Data - Creating Total Steps Histograms}}\label{analyzing-steps-data---creating-total-steps-histograms}}
+
+Creating a histogram to display the distribution of steps taken each day
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{steps\_graph\_with\_outlier }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(daily\_activity, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=}\NormalTok{total\_steps)) }\SpecialCharTok{+} 
+      \FunctionTok{geom\_histogram}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ ..density..), }\AttributeTok{colour =} \StringTok{"\#1F3552"}\NormalTok{, }\AttributeTok{fill =} \StringTok{"\#D8E2EB"}\NormalTok{) }\SpecialCharTok{+} 
+      \FunctionTok{geom\_density}\NormalTok{() }\SpecialCharTok{+}
+      \FunctionTok{theme\_cleveland}\NormalTok{ () }\SpecialCharTok{+}
+      \FunctionTok{scale\_y\_continuous}\NormalTok{(}\AttributeTok{labels =}\NormalTok{ scientific)}
+
+\NormalTok{steps\_graph\_with\_outlier}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{Bellabeat-CaseStudy_files/figure-latex/steps_graph: Steps Analysis after Outlier removal-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#cleaning the environment, dropping the obsolete dataframe}
+\FunctionTok{rm}\NormalTok{(steps\_graph\_with\_outlier)}
+\end{Highlighting}
+\end{Shaded}
+
+This is a normal looking curve with a positive skew and extreme outliers
+after 25,000 steps Now, I Filtered out days where no activity is
+recorded and outliers and rerun save the results, I will remove the
+outliers and create a new graph.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Removing outliers}
+
+\NormalTok{daily\_activity }\OtherTok{\textless{}{-}}\NormalTok{ daily\_activity[(daily\_activity}\SpecialCharTok{$}\NormalTok{total\_steps}\SpecialCharTok{\textgreater{}}\DecValTok{0}\NormalTok{) }\SpecialCharTok{\&}\NormalTok{ (daily\_activity}\SpecialCharTok{$}\NormalTok{total\_steps }\SpecialCharTok{\textless{}} \DecValTok{25000}\NormalTok{) ,]}
+
+\CommentTok{\#steps\_graph: Steps Analysis  after removing outliers}
+\CommentTok{\# Produce new histogram}
+
+\NormalTok{steps\_graph\_without\_outliers }\OtherTok{\textless{}{-}} 
+  \FunctionTok{ggplot}\NormalTok{(daily\_activity, }\FunctionTok{aes}\NormalTok{(total\_steps,)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_histogram}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ ..density..), }\AttributeTok{colour =} \StringTok{"\#1F3552"}\NormalTok{, }\AttributeTok{fill =} \StringTok{"\#c8c7d7"}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_density}\NormalTok{(}\AttributeTok{alpha =} \FloatTok{0.3}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Historgram of Total Steps"}\NormalTok{) }\SpecialCharTok{+} 
+  \FunctionTok{theme\_cleveland}\NormalTok{ () }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Total Steps Historgram"}\NormalTok{, }
+       \AttributeTok{x =} \StringTok{"Total Steps"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Density"}\NormalTok{)}
+
+\NormalTok{steps\_graph\_without\_outliers}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
+\end{verbatim}
+
+\includegraphics{Bellabeat-CaseStudy_files/figure-latex/steps_graph: Steps Analysis-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#cleaning the environment, dropping the obsolete dataframe}
+\FunctionTok{rm}\NormalTok{(steps\_graph\_without\_outliers)}
+\end{Highlighting}
+\end{Shaded}
+
+There is still a skew, but we have minimized extreme bias.
+
+\hypertarget{running-descriptive-analysis}{%
+\subparagraph{\texorpdfstring{\textbf{Running Descriptive
+Analysis}}{Running Descriptive Analysis}}\label{running-descriptive-analysis}}
+
+Here, I am running a descriptive statistics to familiarize myself with
+the data.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{monthly\_user\_activity }\OtherTok{\textless{}{-}}
+\NormalTok{      daily\_activity  }\SpecialCharTok{\%\textgreater{}\%} 
+      \FunctionTok{group\_by}\NormalTok{(id) }\SpecialCharTok{\%\textgreater{}\%} 
+      \FunctionTok{summarise}\NormalTok{(}
+        \AttributeTok{record\_count =} \FunctionTok{n}\NormalTok{(),}
+        \AttributeTok{sum\_steps\_monthly =} \FunctionTok{sum}\NormalTok{(total\_steps),}
+        \AttributeTok{min\_steps\_monthly =} \FunctionTok{min}\NormalTok{(total\_steps),}
+        \AttributeTok{max\_steps\_monthly =} \FunctionTok{max}\NormalTok{(total\_steps),}
+        \AttributeTok{median\_steps\_monthly =} \FunctionTok{median}\NormalTok{(total\_steps),}
+        \AttributeTok{median\_steps\_daily =} \FunctionTok{median}\NormalTok{(total\_steps)}\SpecialCharTok{/}\FunctionTok{n}\NormalTok{(),}
+        \AttributeTok{avg\_steps\_monthly =} \FunctionTok{mean}\NormalTok{(total\_steps),}
+        \AttributeTok{std\_steps\_monthly =} \FunctionTok{sd}\NormalTok{(total\_steps)}
+\NormalTok{      )}
+
+\NormalTok{monthly\_user\_activity}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 33 x 9
+##            id record_c~1 sum_s~2 min_s~3 max_s~4 media~5 media~6 avg_s~7 std_s~8
+##         <dbl>      <int>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>   <dbl>
+##  1 1503960366         30  375619    9705   18134  12438    415.   12521.   2099.
+##  2 1624580081         30  142042    1510   10536   3726.   124.    4735.   2610.
+##  3 1644430081         30  218489    1223   18213   6684.   223.    7283.   4325.
+##  4 1844505072         21   79982       4    8054   4014    191.    3809.   2475.
+##  5 1927972279         17   28400     149    3790   1675     98.5   1671.   1177.
+##  6 2022484408         31  352490    3292   18387  11548    373.   11371.   2807.
+##  7 2026352035         31  172573     254   12357   5528    178.    5567.   2978.
+##  8 2320127002         31  146223     772   10725   5057    163.    4717.   2255.
+##  9 2347167796         18  171354      42   22244   9781    543.    9520.   4682.
+## 10 2873212765         31  234229    2524    9685   7762    250.    7556.   1514.
+## # ... with 23 more rows, and abbreviated variable names 1: record_count,
+## #   2: sum_steps_monthly, 3: min_steps_monthly, 4: max_steps_monthly,
+## #   5: median_steps_monthly, 6: median_steps_daily, 7: avg_steps_monthly,
+## #   8: std_steps_monthly
+\end{verbatim}
+
+Some individuals have extremely low engagement, which may skew analyses.
+I'll group people according to their levels of engagement in order to
+analyze it further.
+
+Now for detailed analysis, I'm distributing the participants into four
+groups (Never, Low, Moderate, and High) on how often they track their
+health. It will help us to analyze the Weight data,Steps count and Sleep
+activities for each user. The users with more then 20 days records are
+categorized as \textbf{High}, the ones with activity records between 10
+and 20 days are assigned the \textbf{Moderate} category, users with
+records less then 10 days are categorized as \textbf{Low} and for those
+who have NO records for any activity are categorized as \textbf{Never}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{daily\_steps\_records }\OtherTok{\textless{}{-}} 
+\NormalTok{        daily\_activity }\SpecialCharTok{\%\textgreater{}\%}
+        \FunctionTok{count}\NormalTok{(id) }\SpecialCharTok{\%\textgreater{}\%}
+        \FunctionTok{mutate}\NormalTok{(}\AttributeTok{steps\_groups =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{          n }\SpecialCharTok{\textless{}=} \DecValTok{10} \SpecialCharTok{\textasciitilde{}} \StringTok{"Low"}\NormalTok{,}
+\NormalTok{          n }\SpecialCharTok{\textless{}=} \DecValTok{20} \SpecialCharTok{\textasciitilde{}} \StringTok{"Moderate"}\NormalTok{,}
+\NormalTok{          n }\SpecialCharTok{\textless{}=} \DecValTok{31} \SpecialCharTok{\textasciitilde{}} \StringTok{"High"}
+\NormalTok{        )}
+\NormalTok{           )}
+
+       
+      \CommentTok{\#counting how many nights each participant recorded their sleep and also grouping them}
+       \CommentTok{\#based on frequency of recording}
+\NormalTok{      sleep\_records }\OtherTok{\textless{}{-}}
+\NormalTok{        sleep\_data }\SpecialCharTok{\%\textgreater{}\%}
+        \FunctionTok{count}\NormalTok{(id) }\SpecialCharTok{\%\textgreater{}\%}
+        \FunctionTok{mutate}\NormalTok{(}\AttributeTok{sleep\_groups =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{          n }\SpecialCharTok{\textless{}=} \DecValTok{10} \SpecialCharTok{\textasciitilde{}} \StringTok{"Low"}\NormalTok{,}
+\NormalTok{          n }\SpecialCharTok{\textless{}=} \DecValTok{20} \SpecialCharTok{\textasciitilde{}} \StringTok{"Moderate"}\NormalTok{,}
+\NormalTok{          n }\SpecialCharTok{\textless{}=} \DecValTok{31} \SpecialCharTok{\textasciitilde{}} \StringTok{"High"}
+\NormalTok{        )}
+\NormalTok{        )}
+
+      
+       \CommentTok{\#doing the same for weight}
+\NormalTok{      weight\_records }\OtherTok{\textless{}{-}}
+\NormalTok{        weight\_data }\SpecialCharTok{\%\textgreater{}\%}
+        \FunctionTok{count}\NormalTok{(id) }\SpecialCharTok{\%\textgreater{}\%}
+        \FunctionTok{mutate}\NormalTok{(}\AttributeTok{weight\_groups =} \FunctionTok{case\_when}\NormalTok{(}
+\NormalTok{          n }\SpecialCharTok{\textless{}=} \DecValTok{10} \SpecialCharTok{\textasciitilde{}} \StringTok{"Low"}\NormalTok{,}
+\NormalTok{          n }\SpecialCharTok{\textless{}=} \DecValTok{20} \SpecialCharTok{\textasciitilde{}} \StringTok{"Moderate"}\NormalTok{,}
+\NormalTok{          n }\SpecialCharTok{\textless{}=} \DecValTok{31} \SpecialCharTok{\textasciitilde{}} \StringTok{"High"}
+\NormalTok{        )}
+\NormalTok{        )}
+      
+    
+      
+\CommentTok{\#full join with sleep}
+\NormalTok{daily\_steps\_records }\OtherTok{\textless{}{-}} 
+\NormalTok{  daily\_steps\_records       }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{full\_join}\NormalTok{(sleep\_records, }\AttributeTok{by=}\StringTok{"id"}\NormalTok{)}
+  
+\CommentTok{\# full join with weight}
+\NormalTok{daily\_steps\_records }\OtherTok{\textless{}{-}} 
+\NormalTok{  daily\_steps\_records       }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{full\_join}\NormalTok{(weight\_records, }\AttributeTok{by=}\StringTok{"id"}\NormalTok{) }
+
+\NormalTok{daily\_steps\_records }\OtherTok{\textless{}{-}} 
+\NormalTok{  daily\_steps\_records }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{replace\_na}\NormalTok{(}\FunctionTok{list}\NormalTok{(}\AttributeTok{sleep\_records =} \DecValTok{0}\NormalTok{, }\AttributeTok{weight\_records =} \DecValTok{0}\NormalTok{, }\AttributeTok{sleep\_groups =} \StringTok{"Never"}\NormalTok{, }\AttributeTok{weight\_groups =} \StringTok{"Never"}\NormalTok{))}
+
+
+\CommentTok{\#renaming the column 2 of the data set}
+\FunctionTok{colnames}\NormalTok{(daily\_steps\_records)[}\DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}total\_count\textquotesingle{}}
+
+
+\CommentTok{\#Dropping extra columns created while merge}
+\NormalTok{daily\_steps\_records }\OtherTok{\textless{}{-}}\NormalTok{ daily\_steps\_records[ }\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{4}\NormalTok{,}\DecValTok{6}\NormalTok{) ]}
+
+      
+      
+  \CommentTok{\#categorizing overall device usage by the participants    }
+\NormalTok{    sleep\_groups\_percentage }\OtherTok{\textless{}{-}}\NormalTok{   daily\_steps\_records }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(sleep\_groups) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{Percentage=}\FunctionTok{n}\NormalTok{()}\SpecialCharTok{/}\FunctionTok{nrow}\NormalTok{(.)) }\CommentTok{\#calculating the \% of High,Low,Med for users}
+      \FunctionTok{colnames}\NormalTok{(sleep\_groups\_percentage)[}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}group\textquotesingle{}}
+    
+\NormalTok{    steps\_groups\_percentage }\OtherTok{\textless{}{-}}\NormalTok{   daily\_steps\_records }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(steps\_groups) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{Percentage=}\FunctionTok{n}\NormalTok{()}\SpecialCharTok{/}\FunctionTok{nrow}\NormalTok{(.))  }\CommentTok{\#calculating the \% of High,Low,Med for users}
+          \FunctionTok{colnames}\NormalTok{(steps\_groups\_percentage)[}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}group\textquotesingle{}}
+
+\NormalTok{    weight\_groups\_percentage }\OtherTok{\textless{}{-}}\NormalTok{  daily\_steps\_records }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(weight\_groups) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{summarise}\NormalTok{(}\AttributeTok{Percentage=}\FunctionTok{n}\NormalTok{()}\SpecialCharTok{/}\FunctionTok{nrow}\NormalTok{(.))  }\CommentTok{\#calculating the \% of High,Low,Med for users}
+          \FunctionTok{colnames}\NormalTok{(weight\_groups\_percentage)[}\DecValTok{1}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}group\textquotesingle{}}
+
+\CommentTok{\#joining all activities in a single dataframe.}
+\NormalTok{device\_user\_percentage }\OtherTok{\textless{}{-}} 
+\NormalTok{   steps\_groups\_percentage    }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{full\_join}\NormalTok{(sleep\_groups\_percentage, }\AttributeTok{by=}\StringTok{"group"}\NormalTok{)}
+
+
+\NormalTok{device\_user\_percentage }\OtherTok{\textless{}{-}} 
+\NormalTok{  device\_user\_percentage       }\SpecialCharTok{\%\textgreater{}\%} 
+  \FunctionTok{full\_join}\NormalTok{(weight\_groups\_percentage, }\AttributeTok{by=}\StringTok{"group"}\NormalTok{)}
+    
+\FunctionTok{colnames}\NormalTok{(device\_user\_percentage) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}Recording\_Frequency\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}steps\_Percent\textquotesingle{}}\NormalTok{,}\StringTok{\textquotesingle{}sleep\_Percent\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}weight\_percent\textquotesingle{}}\NormalTok{) }\CommentTok{\#renaming the dataframe columns}
+\NormalTok{device\_user\_percentage[}\FunctionTok{is.na}\NormalTok{(device\_user\_percentage)] }\OtherTok{=} \DecValTok{0} \CommentTok{\#replacing all NAs with 0}
+\NormalTok{device\_user\_percentage[}\DecValTok{2}\SpecialCharTok{:}\DecValTok{4}\NormalTok{] }\OtherTok{\textless{}{-}} \FunctionTok{sapply}\NormalTok{(device\_user\_percentage[}\DecValTok{2}\SpecialCharTok{:}\DecValTok{4}\NormalTok{], }\ControlFlowTok{function}\NormalTok{(x) }\FunctionTok{percent}\NormalTok{(x, }\AttributeTok{accuracy=}\DecValTok{2}\NormalTok{)) }\CommentTok{\#converting decimal values to \% form.}
+
+
+\CommentTok{\#cleaning the environment, dropping all the obsolete dataframes}
+\FunctionTok{rm}\NormalTok{(sleep\_records, weight\_records,sleep\_groups\_percentage,steps\_groups\_percentage,weight\_groups\_percentage)     }
+
+
+\NormalTok{daily\_steps\_records  }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 33 x 5
+##            id total_count steps_groups sleep_groups weight_groups
+##         <dbl>       <int> <chr>        <chr>        <chr>        
+##  1 1503960366          30 High         High         Low          
+##  2 1624580081          30 High         Never        Never        
+##  3 1644430081          30 High         Low          Never        
+##  4 1844505072          21 High         Low          Never        
+##  5 1927972279          17 Moderate     Low          Low          
+##  6 2022484408          31 High         Never        Never        
+##  7 2026352035          31 High         High         Never        
+##  8 2320127002          31 High         Low          Never        
+##  9 2347167796          18 Moderate     Moderate     Never        
+## 10 2873212765          31 High         Never        Low          
+## # ... with 23 more rows
+\end{verbatim}
+
+\hypertarget{activity-wise-device-engagement---alluvial-plot}{%
+\subparagraph{\texorpdfstring{\textbf{Activity wise Device Engagement -
+Alluvial
+plot}}{Activity wise Device Engagement - Alluvial plot}}\label{activity-wise-device-engagement---alluvial-plot}}
+
+In order to determine which features of the devices are most and least
+used, we now look for the device conversion rate or engagement rate.
+This will make it easier for us to comprehend how user numbers
+increase/decrease as users switch between different activities
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Transforming the recording frequency data frame into a long format to make the building of the alluvial plot easier.}
+
+\NormalTok{actvities\_graph\_data  }\OtherTok{\textless{}{-}}\NormalTok{ daily\_steps\_records[}\FunctionTok{c}\NormalTok{(}\StringTok{"id"}\NormalTok{, }\StringTok{"steps\_groups"}\NormalTok{, }\StringTok{"sleep\_groups"}\NormalTok{, }\StringTok{"weight\_groups"}\NormalTok{)] }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{pivot\_longer}\NormalTok{(}\SpecialCharTok{!}\NormalTok{id )}
+
+  
+
+\NormalTok{actvties\_analysis\_graph  }\OtherTok{\textless{}{-}} 
+    \FunctionTok{ggplot}\NormalTok{(actvities\_graph\_data, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ name, }\AttributeTok{stratum =}\NormalTok{ value, }\AttributeTok{alluvium =}\NormalTok{ id, }\AttributeTok{fill =}\NormalTok{ value, }\AttributeTok{label =}\NormalTok{ value)) }\SpecialCharTok{+}
+    \FunctionTok{scale\_x\_discrete}\NormalTok{(}\AttributeTok{limits =} \FunctionTok{c}\NormalTok{(}\StringTok{"steps\_groups"}\NormalTok{, }\StringTok{"sleep\_groups"}\NormalTok{, }\StringTok{"weight\_groups"}\NormalTok{), }\AttributeTok{expand =} \FunctionTok{c}\NormalTok{(.}\DecValTok{1}\NormalTok{, .}\DecValTok{1}\NormalTok{))}\SpecialCharTok{+}
+    \FunctionTok{geom\_flow}\NormalTok{() }\SpecialCharTok{+}
+    \FunctionTok{geom\_stratum}\NormalTok{(}\AttributeTok{alpha =}\NormalTok{ .}\DecValTok{5}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{geom\_text}\NormalTok{(}\AttributeTok{stat =} \StringTok{"stratum"}\NormalTok{, }\AttributeTok{size =} \DecValTok{3}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Device Usage for Each actvity"}\NormalTok{, }\AttributeTok{x =} \StringTok{" "}\NormalTok{, }\AttributeTok{y =} \StringTok{"Number of users"}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{scale\_y\_reverse}\NormalTok{()}\SpecialCharTok{+}
+    \FunctionTok{scale\_fill\_brewer}\NormalTok{(}\AttributeTok{type =} \StringTok{"qual"}\NormalTok{, }\AttributeTok{palette =} \StringTok{"Set2"}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{, }
+          \AttributeTok{panel.background =} \FunctionTok{element\_blank}\NormalTok{(),}
+          \AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{14}\NormalTok{),}
+          \AttributeTok{axis.text.y =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{10}\NormalTok{),}
+          \AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size=}\DecValTok{18}\NormalTok{, }\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{), }
+          \AttributeTok{axis.title.y =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{14}\NormalTok{))}
+ 
+
+
+
+\NormalTok{device\_user\_percentage}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 4 x 4
+##   Recording_Frequency steps_Percent sleep_Percent weight_percent
+##   <chr>               <chr>         <chr>         <chr>         
+## 1 High                76%           36%           6%            
+## 2 Low                 4%            28%           18%           
+## 3 Moderate            22%           10%           0%            
+## 4 Never               0%            28%           76%
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{actvties\_analysis\_graph}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: `spread_()` was deprecated in tidyr 1.2.0.
+## i Please use `spread()` instead.
+## i The deprecated feature was likely used in the ggalluvial package.
+##   Please report the issue at
+##   <]8;;https://github.com/corybrunson/ggalluvial/issueshttps://github.com/corybrunson/ggalluvial/issues]8;;>.
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: The `.dots` argument of `group_by()` is deprecated as of dplyr 1.0.0.
+## i The deprecated feature was likely used in the dplyr package.
+##   Please report the issue at <]8;;https://github.com/tidyverse/dplyr/issueshttps://github.com/tidyverse/dplyr/issues]8;;>.
+\end{verbatim}
+
+\includegraphics{Bellabeat-CaseStudy_files/figure-latex/Device Engagement-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#cleaning the environment, dropping all the obsolete dataframes}
+\FunctionTok{rm}\NormalTok{(actvities\_graph\_data, device\_user\_percentage, actvties\_analysis\_graph)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Key Insights:}
+
+\begin{itemize}
+\tightlist
+\item
+  \textbf{75\%+} users recorded their daily steps for more then 20days,
+  this reduces to \textbf{36\%} when it comes to sleep monitoring and
+  its further reduced to \textbf{6\%} when it comes to recording the
+  weights.
+\item
+  Another trend which can be visualized here is of \textbf{Moderate
+  Users},(those who recorded more then 10day and less then 20days), it
+  keep decreasing i.e.~\textbf{22\%, 10\%, \& 0\%} for Steps group,
+  Sleep Group and weight group respectively.
+\item
+  The data shares the trend that there is a sharp growth in \emph{Never
+  Recorder's} chunk, as its \textbf{0\%} for Daily steps recorders, its
+  \textbf{28\%} and \textbf{76\%} for Sleep and Weight recorders
+  respectively.\\
+  \strut \\
+\end{itemize}
+
+\hypertarget{daily-steps-records-vs-device-usage---scatter-plot}{%
+\subparagraph{\texorpdfstring{\textbf{Daily Steps Records Vs Device
+Usage - Scatter
+plot}}{Daily Steps Records Vs Device Usage - Scatter plot}}\label{daily-steps-records-vs-device-usage---scatter-plot}}
+
+We have to find out, is there a relationship between average activity
+per day(daily steps) and recording device. To understand the
+relationship clearly we will only be considering the users with more
+then 10 days of steps recording.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#filtering data for outliers}
+\NormalTok{filter\_records }\OtherTok{\textless{}{-}} \FunctionTok{filter}\NormalTok{(daily\_steps\_records, total\_count }\SpecialCharTok{\textless{}} \DecValTok{10}\NormalTok{)}
+
+
+\CommentTok{\#removed id "4057192912" because they only recorded 3 out of 31 days}
+
+\NormalTok{  daily\_steps\_records }\OtherTok{\textless{}{-}} \FunctionTok{subset}\NormalTok{(daily\_steps\_records, id}\SpecialCharTok{!=} \DecValTok{4057192912}\NormalTok{)}
+
+\CommentTok{\#verifying the data accuracy}
+  \FunctionTok{filter}\NormalTok{(daily\_steps\_records, (daily\_steps\_records}\SpecialCharTok{$}\NormalTok{id }\SpecialCharTok{==} \StringTok{"4057192912"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 0 x 5
+## # ... with 5 variables: id <dbl>, total_count <int>, steps_groups <chr>,
+## #   sleep_groups <chr>, weight_groups <chr>
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \CommentTok{\#Recording Frequency vs Monthly Steps                                                         }
+\NormalTok{device\_engagment }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data=}\NormalTok{monthly\_user\_activity, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ record\_count, }\AttributeTok{y =}\NormalTok{ avg\_steps\_monthly))}\SpecialCharTok{+}
+                    \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+                    \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =}\NormalTok{ lm) }\SpecialCharTok{+}
+                    \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+                    \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Recording Frequency vs Monthly Steps"}\NormalTok{, }
+                         \AttributeTok{x =} \StringTok{"Number of Days Recorded"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Average Steps Per Participant"}\NormalTok{) }\SpecialCharTok{+}
+                    \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{12}\NormalTok{, }\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{),}
+                          \AttributeTok{axis.title.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{10}\NormalTok{),}
+                          \AttributeTok{axis.title.y =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{10}\NormalTok{)) }
+
+\NormalTok{daily\_steps\_records}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 32 x 5
+##            id total_count steps_groups sleep_groups weight_groups
+##         <dbl>       <int> <chr>        <chr>        <chr>        
+##  1 1503960366          30 High         High         Low          
+##  2 1624580081          30 High         Never        Never        
+##  3 1644430081          30 High         Low          Never        
+##  4 1844505072          21 High         Low          Never        
+##  5 1927972279          17 Moderate     Low          Low          
+##  6 2022484408          31 High         Never        Never        
+##  7 2026352035          31 High         High         Never        
+##  8 2320127002          31 High         Low          Never        
+##  9 2347167796          18 Moderate     Moderate     Never        
+## 10 2873212765          31 High         Never        Low          
+## # ... with 22 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{device\_engagment}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{Bellabeat-CaseStudy_files/figure-latex/Daily Steps Records Vs Device Usage-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#cleaning the environment, dropping all the obsolete dataframes}
+\FunctionTok{rm}\NormalTok{(filter\_records,device\_engagment, daily\_steps\_records )}
+\end{Highlighting}
+\end{Shaded}
+
+There is just one user with less than 10days records, renaming users
+have recorded the steps for more than 10days. Its clear in above graph
+that there is a positive correlation between daily steps and days
+recorded, so we can say that the more someone records their health data,
+we see a higher average daily steps.
+
+\hfill\break
+\hfill\break
+
+\hypertarget{trends-in-time}{%
+\subparagraph{\texorpdfstring{\textbf{Trends in
+Time}}{Trends in Time}}\label{trends-in-time}}
+
+Here, I'll be looking for answers of following questions. - Is there a
+trend in time? - Is a particular time of the day or night when
+participants use the device more? - who are the device users ? User
+social profile if possible. - Most active hours ?
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Most Active Hours}
+                        
+\NormalTok{steps\_perhour}\SpecialCharTok{$}\NormalTok{hours }\OtherTok{\textless{}{-}} \FunctionTok{format}\NormalTok{(}\FunctionTok{as.POSIXct}\NormalTok{(steps\_perhour}\SpecialCharTok{$}\NormalTok{hours), }\AttributeTok{format =} \StringTok{"\%H:\%M"}\NormalTok{)  }\CommentTok{\#remove the seconds and just have hours and minutes}
+
+\NormalTok{ most\_active\_hours }\OtherTok{\textless{}{-}}\NormalTok{ steps\_perhour }\SpecialCharTok{\%\textgreater{}\%}
+   \FunctionTok{group\_by}\NormalTok{(hours) }\SpecialCharTok{\%\textgreater{}\%}
+   \FunctionTok{summarize}\NormalTok{(}\AttributeTok{avg\_steps\_hourly =} \FunctionTok{mean}\NormalTok{(step\_total)) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\#find average steps for each hour}
+   \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(hours, avg\_steps\_hourly, }\AttributeTok{group =} \DecValTok{1}\NormalTok{)) }\SpecialCharTok{+}
+   \FunctionTok{geom\_line}\NormalTok{(}\AttributeTok{color =} \StringTok{"\#900C3F"}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Average Steps Per Hour"}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+   \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{90}\NormalTok{, }\AttributeTok{vjust =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{hjust=}\DecValTok{1}\NormalTok{),}
+         \AttributeTok{text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{8}\NormalTok{)) }\SpecialCharTok{+}
+   \FunctionTok{xlab}\NormalTok{(}\StringTok{"Hour of the Day"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{ylab}\NormalTok{(}\StringTok{"Average Step Count"}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{annotate}\NormalTok{(}\StringTok{"rect"}\NormalTok{, }\AttributeTok{xmin =} \StringTok{"11:00"}\NormalTok{, }\AttributeTok{xmax =} \StringTok{"15:00"}\NormalTok{, }
+            \AttributeTok{ymin =} \DecValTok{0}\NormalTok{, }\AttributeTok{ymax =} \DecValTok{700}\NormalTok{, }\AttributeTok{alpha =}\NormalTok{ .}\DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{annotate}\NormalTok{(}\StringTok{"rect"}\NormalTok{, }\AttributeTok{xmin =} \StringTok{"17:00"}\NormalTok{, }\AttributeTok{xmax =} \StringTok{"20:00"}\NormalTok{, }
+            \AttributeTok{ymin =} \DecValTok{0}\NormalTok{, }\AttributeTok{ymax =} \DecValTok{700}\NormalTok{, }\AttributeTok{alpha =}\NormalTok{ .}\DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{annotate}\NormalTok{(}\StringTok{"rect"}\NormalTok{,  }\AttributeTok{xmin =} \StringTok{"07:00"}\NormalTok{, }\AttributeTok{xmax =} \StringTok{"10:00"}\NormalTok{, }
+            \AttributeTok{ymin =} \DecValTok{0}\NormalTok{, }\AttributeTok{ymax =} \DecValTok{700}\NormalTok{, }\AttributeTok{alpha =}\NormalTok{ .}\DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+      \FunctionTok{annotate}\NormalTok{(}\StringTok{"text"}\NormalTok{, }\AttributeTok{x =} \StringTok{"13:00"}\NormalTok{, }\AttributeTok{y =} \DecValTok{650}\NormalTok{, }
+            \AttributeTok{label =} \StringTok{"Afternoon"}\NormalTok{, }\AttributeTok{hjust =} \StringTok{"center"}\NormalTok{, }\AttributeTok{size =} \DecValTok{3}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{annotate}\NormalTok{(}\StringTok{"text"}\NormalTok{, }\AttributeTok{x =} \FloatTok{19.5}\NormalTok{, }\AttributeTok{y =} \DecValTok{650}\NormalTok{, }
+            \AttributeTok{label =} \StringTok{"Evening"}\NormalTok{, }\AttributeTok{hjust =} \StringTok{"center"}\NormalTok{, }\AttributeTok{size =} \DecValTok{3}\NormalTok{) }\SpecialCharTok{+}
+    \FunctionTok{annotate}\NormalTok{(}\StringTok{"text"}\NormalTok{, }\AttributeTok{x =} \FloatTok{9.5}\NormalTok{, }\AttributeTok{y =} \DecValTok{650}\NormalTok{,}
+          \AttributeTok{label =} \StringTok{"Morning"}\NormalTok{, }\AttributeTok{hjust =} \StringTok{"center"}\NormalTok{, }\AttributeTok{size =} \DecValTok{3}\NormalTok{)}
+
+ 
+
+\NormalTok{ steps\_perhour}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 22,099 x 4
+##            id activity_hour hours step_total
+##         <dbl> <date>        <chr>      <dbl>
+##  1 1503960366 2016-04-12    00:00        373
+##  2 1503960366 2016-04-12    01:00        160
+##  3 1503960366 2016-04-12    02:00        151
+##  4 1503960366 2016-04-12    03:00          0
+##  5 1503960366 2016-04-12    04:00          0
+##  6 1503960366 2016-04-12    05:00          0
+##  7 1503960366 2016-04-12    06:00          0
+##  8 1503960366 2016-04-12    07:00          0
+##  9 1503960366 2016-04-12    08:00        250
+## 10 1503960366 2016-04-12    09:00       1864
+## # ... with 22,089 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ most\_active\_hours}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Bellabeat-CaseStudy_files/figure-latex/Trends in Time: Most Active Hours-1.pdf}
+
+The above time trends show us that mostly there are a 3 type of active
+users, the ones who exercise during morning time, some do it in
+afternoon while there is peak in evening time as well. To analyze it
+further we must break the data in quartiles and investigate.\\
+\strut \\
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ monthly\_user\_activity}\SpecialCharTok{$}\NormalTok{sum\_quartile }\OtherTok{\textless{}{-}} \FunctionTok{as.factor}\NormalTok{(}\FunctionTok{ntile}\NormalTok{(monthly\_user\_activity}\SpecialCharTok{$}\NormalTok{sum\_steps\_monthly, }\DecValTok{4}\NormalTok{))}
+ 
+\NormalTok{ steps\_perhour }\OtherTok{\textless{}{-}} \FunctionTok{inner\_join}\NormalTok{(steps\_perhour, monthly\_user\_activity[ , }\FunctionTok{c}\NormalTok{(}\StringTok{"id"}\NormalTok{, }\StringTok{"sum\_quartile"}\NormalTok{)], }\AttributeTok{by =} \StringTok{"id"}\NormalTok{)}
+ 
+ 
+
+\NormalTok{ most\_active\_hours }\OtherTok{\textless{}{-}}\NormalTok{  steps\_perhour }\SpecialCharTok{\%\textgreater{}\%}
+   \FunctionTok{group\_by}\NormalTok{(sum\_quartile, hours) }\SpecialCharTok{\%\textgreater{}\%}
+   \FunctionTok{summarize}\NormalTok{(}\AttributeTok{avg\_steps\_hourly =} \FunctionTok{mean}\NormalTok{(step\_total)) }\SpecialCharTok{\%\textgreater{}\%} \CommentTok{\#find average steps for each hour}
+   \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(hours, avg\_steps\_hourly, }\AttributeTok{group =}\NormalTok{ sum\_quartile, }\AttributeTok{color =}\NormalTok{ sum\_quartile)) }\SpecialCharTok{+}
+   \FunctionTok{geom\_line}\NormalTok{() }\SpecialCharTok{+}
+   \FunctionTok{ggtitle}\NormalTok{(}\StringTok{"Average Steps Per Hour"}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+}
+   \FunctionTok{theme}\NormalTok{(}\AttributeTok{axis.text.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{angle =} \DecValTok{90}\NormalTok{, }\AttributeTok{vjust =} \FloatTok{0.5}\NormalTok{, }\AttributeTok{hjust=}\DecValTok{1}\NormalTok{))}\SpecialCharTok{+}
+   \FunctionTok{xlab}\NormalTok{(}\StringTok{"Hour of the Day"}\NormalTok{) }\SpecialCharTok{+} \FunctionTok{ylab}\NormalTok{(}\StringTok{"Average Steps"}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{labs}\NormalTok{(}\AttributeTok{color =} \StringTok{"Quartile"}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{annotate}\NormalTok{(}\StringTok{"rect"}\NormalTok{, }\AttributeTok{xmin =} \StringTok{"16:00"}\NormalTok{, }\AttributeTok{xmax =} \StringTok{"20:00"}\NormalTok{, }
+            \AttributeTok{ymin =} \DecValTok{0}\NormalTok{, }\AttributeTok{ymax =} \DecValTok{1250}\NormalTok{, }\AttributeTok{alpha =}\NormalTok{ .}\DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{annotate}\NormalTok{(}\StringTok{"rect"}\NormalTok{, }\AttributeTok{xmin =} \StringTok{"11:00"}\NormalTok{, }\AttributeTok{xmax =} \StringTok{"15:00"}\NormalTok{, }
+            \AttributeTok{ymin =} \DecValTok{0}\NormalTok{, }\AttributeTok{ymax =} \DecValTok{1250}\NormalTok{, }\AttributeTok{alpha =}\NormalTok{ .}\DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{annotate}\NormalTok{(}\StringTok{"rect"}\NormalTok{, }\AttributeTok{xmin =} \StringTok{"07:00"}\NormalTok{, }\AttributeTok{xmax =} \StringTok{"10:00"}\NormalTok{, }
+            \AttributeTok{ymin =} \DecValTok{0}\NormalTok{, }\AttributeTok{ymax =} \DecValTok{1250}\NormalTok{, }\AttributeTok{alpha =}\NormalTok{ .}\DecValTok{1}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{annotate}\NormalTok{(}\StringTok{"text"}\NormalTok{, }\AttributeTok{x =} \StringTok{"18:00"}\NormalTok{, }\AttributeTok{y =} \DecValTok{1210}\NormalTok{, }
+            \AttributeTok{label =} \StringTok{"Evening"}\NormalTok{, }\AttributeTok{hjust =} \StringTok{"center"}\NormalTok{, }\AttributeTok{size =} \FloatTok{2.5}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{annotate}\NormalTok{(}\StringTok{"text"}\NormalTok{, }\AttributeTok{x =} \StringTok{"13:00"}\NormalTok{, }\AttributeTok{y =} \DecValTok{1210}\NormalTok{, }
+            \AttributeTok{label =} \StringTok{"Afternoon"}\NormalTok{, }\AttributeTok{hjust =} \StringTok{"center"}\NormalTok{, }\AttributeTok{size =} \FloatTok{2.5}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{annotate}\NormalTok{(}\StringTok{"text"}\NormalTok{, }\AttributeTok{x =} \FloatTok{9.5}\NormalTok{, }\AttributeTok{y =} \DecValTok{1210}\NormalTok{, }
+            \AttributeTok{label =} \StringTok{"Morning"}\NormalTok{, }\AttributeTok{hjust =} \StringTok{"center"}\NormalTok{, }\AttributeTok{size =} \FloatTok{2.5}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'sum_quartile'. You can override using the
+## `.groups` argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ most\_active\_hours}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Bellabeat-CaseStudy_files/figure-latex/Trends in Time: Most Active Hour - Quartiles-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \CommentTok{\#cleaning the environment, dropping the obsolete dataframe}
+   \FunctionTok{rm}\NormalTok{(most\_active\_hours)}
+\end{Highlighting}
+\end{Shaded}
+
+\textbf{Key Insights:} - We see that the top two most active groups( 3
+and 4) of this sample peaks three times: around morning, afternoon and
+evening, it seems these two groups represent the 9-5 office working
+persons. Quartile 4 , have a small peak around 9:00am, and second peak
+around 2:00pm while its highest/busiest peak hour is 7:00pm. Quartile 3,
+its peak is around 8:00am, second peakis around 12:00pm, while its
+busiest hour is around 5:00pm - Quartile 2, one of the least active
+group has a small peak in the morning time, but it can be observed that
+the afternoon and evening peaks as stronger and clearer. - Quartile 1,
+the least active of the sample seems to have one small peak in the late
+morning.\\
+\strut \\
+\strut \\
+
+\hypertarget{sleep-trends}{%
+\subparagraph{\texorpdfstring{\textbf{Sleep
+Trends}}{Sleep Trends}}\label{sleep-trends}}
+
+Lets look at the relationship of high intense activity time and sleep.
+We need look for any trends that those who are more active throughout
+the day sleep more than those who are less active? Could the duration of
+high activity have an impact on this relationship?
+
+I wouldn't be able to determine the precise difference between those two
+variables (intense workout and bedtime) because I don't know what time
+the person went to sleep. However, I can use the hour of maximum steps
+as a color code to indicate how much time they slept that day in
+relation to the number of steps they took.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \FunctionTok{colnames}\NormalTok{(sleep\_data)[}\DecValTok{2}\NormalTok{] }\OtherTok{\textless{}{-}} \StringTok{\textquotesingle{}date\textquotesingle{}} \CommentTok{\#renaming col2 from sleep\_data to date}
+
+ \CommentTok{\#calculate hour of max steps taken}
+\NormalTok{ max\_steps\_perhour }\OtherTok{\textless{}{-}}\NormalTok{ steps\_perhour }\SpecialCharTok{\%\textgreater{}\%}
+   \FunctionTok{group\_by}\NormalTok{(id, activity\_hour) }\SpecialCharTok{\%\textgreater{}\%}
+   \FunctionTok{summarise}\NormalTok{(}\AttributeTok{max\_step\_perhour =}\NormalTok{ hours[}\FunctionTok{which.max}\NormalTok{(step\_total)])}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `summarise()` has grouped output by 'id'. You can override using the `.groups`
+## argument.
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \CommentTok{\#change to integer so it is accepted in the legend}
+\NormalTok{ max\_steps\_perhour}\SpecialCharTok{$}\NormalTok{max\_step\_perhour }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(}\FunctionTok{gsub}\NormalTok{(}\StringTok{"(.*?)}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{s|}\SpecialCharTok{\textbackslash{}\textbackslash{}}\StringTok{:00*"}\NormalTok{, }\StringTok{""}\NormalTok{, max\_steps\_perhour}\SpecialCharTok{$}\NormalTok{max\_step\_perhour))}
+
+  \CommentTok{\#add total steps per day for each night of sleep}
+\NormalTok{ sleep\_data }\OtherTok{\textless{}{-}} \FunctionTok{inner\_join}\NormalTok{(sleep\_data, daily\_activity[ , }\FunctionTok{c}\NormalTok{(}\StringTok{"id"}\NormalTok{, }\StringTok{"activity\_date"}\NormalTok{, }\StringTok{"total\_steps"}\NormalTok{)], }\AttributeTok{by =} \FunctionTok{c}\NormalTok{(}\StringTok{"id"} \OtherTok{=} \StringTok{"id"}\NormalTok{, }\StringTok{"date"} \OtherTok{=} \StringTok{"activity\_date"}\NormalTok{))}
+ 
+\NormalTok{ sleep\_data }\OtherTok{\textless{}{-}} \FunctionTok{inner\_join}\NormalTok{(sleep\_data, max\_steps\_perhour, }\AttributeTok{by =} \FunctionTok{c}\NormalTok{(}\StringTok{"id"} \OtherTok{=} \StringTok{"id"}\NormalTok{, }\StringTok{"date"} \OtherTok{=} \StringTok{"activity\_hour"}\NormalTok{))}
+ 
+
+\NormalTok{ sleep\_vs\_Steps\_graph }\OtherTok{\textless{}{-}}\NormalTok{ sleep\_data }\SpecialCharTok{\%\textgreater{}\%} 
+   \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ total\_steps, }\AttributeTok{y =}\NormalTok{ total\_minutes\_asleep, }\AttributeTok{color =}\NormalTok{ max\_step\_perhour)) }\SpecialCharTok{+}
+   \FunctionTok{geom\_point}\NormalTok{() }\SpecialCharTok{+}
+   \FunctionTok{scale\_color\_gradientn}\NormalTok{(}\AttributeTok{colours =} \FunctionTok{rainbow}\NormalTok{(}\DecValTok{5}\NormalTok{),}
+                         \AttributeTok{breaks =} \FunctionTok{c}\NormalTok{(}\FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{5}\NormalTok{)),}
+                         \AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\FunctionTok{sprintf}\NormalTok{(}
+                           \StringTok{"\%s:00"}\NormalTok{,}
+                           \FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{20}\NormalTok{, }\DecValTok{5}\NormalTok{)}
+\NormalTok{                         ))) }\SpecialCharTok{+}
+   \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{method =}\NormalTok{ lm, }\AttributeTok{alpha =} \FloatTok{0.3}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{theme\_linedraw}\NormalTok{() }\SpecialCharTok{+}
+   \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Sleep vs Steps (per day)"}\NormalTok{, }
+        \AttributeTok{x =} \StringTok{"Minutes Asleep"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Steps"}\NormalTok{,}
+        \AttributeTok{color =} \StringTok{"Hour of Max Step"}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{theme}\NormalTok{(}\AttributeTok{plot.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{12}\NormalTok{, }\AttributeTok{hjust =} \FloatTok{0.5}\NormalTok{),}
+         \AttributeTok{axis.title.x =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{10}\NormalTok{),}
+         \AttributeTok{axis.title.y =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{10}\NormalTok{),}
+         \AttributeTok{legend.key.size =} \FunctionTok{unit}\NormalTok{(}\DecValTok{5}\NormalTok{, }\StringTok{\textquotesingle{}mm\textquotesingle{}}\NormalTok{),}
+         \AttributeTok{legend.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{8}\NormalTok{),}
+         \AttributeTok{legend.text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{6}\NormalTok{)) }
+ 
+\NormalTok{ sleep\_vs\_Steps\_graph}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using formula 'y ~ x'
+\end{verbatim}
+
+\includegraphics{Bellabeat-CaseStudy_files/figure-latex/Steps Vs Sleep-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+  \CommentTok{\#cleaning the environment, dropping the obsolete dataframe}
+   \FunctionTok{rm}\NormalTok{(sleep\_vs\_Steps\_graph, max\_steps\_perhour)}
+\end{Highlighting}
+\end{Shaded}
+
+Here, Sleep and steps is compared for each participant, above scatter
+plot shows the comparison between total minutes asleep and total steps
+taken. In order to estimate whether a participant's most intense workout
+had an impact on their ability to sleep, I colored the hour in which
+they took the most steps. Surprisingly, a negative relationship between
+sleep and daily steps is revealed.This sample shows that as a person
+walks more, his/her sleep gets reduced.\\
+
+Now, we have to look for any trends in days, do any particular
+day(i.e.~weekends) effects the activities or users have the same routine
+throughout the week.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{ sleep\_data}\SpecialCharTok{$}\NormalTok{difference\_bedtime }\OtherTok{\textless{}{-}}\NormalTok{ sleep\_data}\SpecialCharTok{$}\NormalTok{total\_time\_in\_bed }\SpecialCharTok{{-}}\NormalTok{sleep\_data}\SpecialCharTok{$}\NormalTok{total\_minutes\_asleep}
+ 
+ \FunctionTok{mean}\NormalTok{(sleep\_data}\SpecialCharTok{$}\NormalTok{total\_time\_in\_bed }\SpecialCharTok{{-}}\NormalTok{ sleep\_data}\SpecialCharTok{$}\NormalTok{total\_minutes\_asleep)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 39.44963
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+ \CommentTok{\#prepping the data for histogram (long format)}
+\NormalTok{ bedtime\_histogram }\OtherTok{\textless{}{-}} 
+   \FunctionTok{inner\_join}\NormalTok{(sleep\_data[}\FunctionTok{c}\NormalTok{(}\StringTok{"id"}\NormalTok{, }\StringTok{"total\_minutes\_asleep"}\NormalTok{, }\StringTok{"total\_time\_in\_bed"}\NormalTok{)], monthly\_user\_activity[}\FunctionTok{c}\NormalTok{(}\StringTok{"id"}\NormalTok{, }\StringTok{"sum\_quartile"}\NormalTok{)], }\AttributeTok{by =} \StringTok{"id"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+   \FunctionTok{pivot\_longer}\NormalTok{(}\SpecialCharTok{!}\FunctionTok{c}\NormalTok{(id, sum\_quartile))}
+ 
+ \CommentTok{\#summarizing data for labels}
+\NormalTok{ mean\_difference }\OtherTok{\textless{}{-}}\NormalTok{ sleep\_data }\SpecialCharTok{\%\textgreater{}\%}
+   \FunctionTok{summarise}\NormalTok{(}\AttributeTok{average\_difference =} \FunctionTok{round}\NormalTok{(}\FunctionTok{mean}\NormalTok{(difference\_bedtime), }\DecValTok{2}\NormalTok{),}
+             \AttributeTok{data\_count =} \FunctionTok{n}\NormalTok{(),}
+             \AttributeTok{group\_size =} \FunctionTok{length}\NormalTok{(}\FunctionTok{unique}\NormalTok{(id)))}
+ 
+
+\NormalTok{    bedtime\_histogram}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 814 x 4
+##            id sum_quartile name                 value
+##         <dbl> <fct>        <chr>                <dbl>
+##  1 1503960366 4            total_minutes_asleep   327
+##  2 1503960366 4            total_time_in_bed      346
+##  3 1503960366 4            total_minutes_asleep   384
+##  4 1503960366 4            total_time_in_bed      407
+##  5 1503960366 4            total_minutes_asleep   412
+##  6 1503960366 4            total_time_in_bed      442
+##  7 1503960366 4            total_minutes_asleep   340
+##  8 1503960366 4            total_time_in_bed      367
+##  9 1503960366 4            total_minutes_asleep   700
+## 10 1503960366 4            total_time_in_bed      712
+## # ... with 804 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{    mean\_difference}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 1 x 3
+##   average_difference data_count group_size
+##                <dbl>      <int>      <int>
+## 1               39.4        407         24
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{     daygraph }\OtherTok{\textless{}{-}}\NormalTok{ daily\_activity}
+\NormalTok{ daygraph }\OtherTok{\textless{}{-}}\NormalTok{ daygraph [ }\SpecialCharTok{{-}}\FunctionTok{c}\NormalTok{(}\DecValTok{1}\NormalTok{,}\DecValTok{2}\NormalTok{,}\DecValTok{5}\NormalTok{,}\DecValTok{6}\NormalTok{,}\DecValTok{7}\NormalTok{,}\DecValTok{8}\NormalTok{,}\DecValTok{9}\NormalTok{,}\DecValTok{10}\NormalTok{,}\DecValTok{11}\NormalTok{,}\DecValTok{12}\NormalTok{,}\DecValTok{13}\NormalTok{,}\DecValTok{14}\NormalTok{,}\DecValTok{15}\NormalTok{,}\DecValTok{16}\NormalTok{) ]}
+ 
+\NormalTok{   daygraph }\OtherTok{\textless{}{-}}\NormalTok{ daygraph }\SpecialCharTok{\%\textgreater{}\%}
+     \FunctionTok{group\_by}\NormalTok{(day) }\SpecialCharTok{\%\textgreater{}\%}
+     \FunctionTok{summarise}\NormalTok{(}
+     \AttributeTok{avg =} \FunctionTok{mean}\NormalTok{(total\_steps))}
+   
+   
+ \CommentTok{\#cleaning the environment, dropping the obsolete dataframe}
+ \FunctionTok{rm}\NormalTok{ ( mean\_difference)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(daygraph, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x=} \FunctionTok{factor}\NormalTok{(day, }\AttributeTok{levels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Monday"}\NormalTok{, }\StringTok{"Tuesday"}\NormalTok{, }\StringTok{"Wednesday"}\NormalTok{, }\StringTok{"Thursday"}\NormalTok{, }\StringTok{"Friday"}\NormalTok{, }\StringTok{"Saturday"}\NormalTok{, }\StringTok{"Sunday"}\NormalTok{)), }\AttributeTok{y=}\NormalTok{ avg)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{position=}\StringTok{"dodge"}\NormalTok{, }\AttributeTok{stat=}\StringTok{"identity"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{theme\_light}\NormalTok{()}\SpecialCharTok{+}
+    \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Day to Day comparision"}\NormalTok{, }
+       \AttributeTok{x =} \StringTok{"Weekdays"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Steps"}\NormalTok{,}
+       \AttributeTok{color =} \StringTok{"Average Steps"}\NormalTok{)}\SpecialCharTok{+}
+  \FunctionTok{geom\_text}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label =} \FunctionTok{signif}\NormalTok{(avg, }\AttributeTok{digits =} \DecValTok{3}\NormalTok{)),  }\AttributeTok{vjust =} \FloatTok{1.5}\NormalTok{, }\AttributeTok{colour =} \StringTok{"white"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{Bellabeat-CaseStudy_files/figure-latex/Day to Day comparision-1.pdf}
+
+The above bar graphs show that there is no pattern that suggests a rise
+or fall in user engagement, and user activities are unaffected by
+weekends. There is nothing more that can be analyzed from the sample of
+data provided; in order to conduct a more thorough analysis, more data
+would be required. According to current data Tuesdays and Saturdays are
+the busiest days.
+
+\textbf{Sleep delays: Time in bed vs Time asleep} Now we need to analyze
+how much time is taken by a users from going to bed to going to sleep.
+we can analyze it by using the sleep dataframe. The average sleep delay
+is about 40 minutes. lets visualize and analyze it..
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\#Density Histogram of Time Asleep and In Bed}
+
+\NormalTok{ bedtime\_histogram }\SpecialCharTok{\%\textgreater{}\%}
+   \FunctionTok{ggplot}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ value, }\AttributeTok{color =}\NormalTok{ name, }\AttributeTok{fill =}\NormalTok{ name)) }\SpecialCharTok{+}
+   \FunctionTok{geom\_histogram}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{y =}\NormalTok{ ..density..),  }\AttributeTok{position =} \StringTok{"identity"}\NormalTok{, }\AttributeTok{alpha =}\NormalTok{ .}\DecValTok{5}\NormalTok{, }\AttributeTok{binwidth =} \DecValTok{35}\NormalTok{) }\SpecialCharTok{+} 
+   \FunctionTok{guides}\NormalTok{(}\AttributeTok{col =} \ConstantTok{FALSE}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{geom\_density}\NormalTok{(}\AttributeTok{alpha =} \DecValTok{0}\NormalTok{, }\AttributeTok{lwd =}\NormalTok{ .}\DecValTok{6}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{theme\_light}\NormalTok{() }\SpecialCharTok{+}
+     \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"top"}\NormalTok{,}
+         \AttributeTok{legend.key.size =} \FunctionTok{unit}\NormalTok{(}\DecValTok{5}\NormalTok{, }\StringTok{\textquotesingle{}mm\textquotesingle{}}\NormalTok{),}
+         \AttributeTok{text =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{7}\NormalTok{))}\SpecialCharTok{+}
+   \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Time in bed vs Time asleep "}\NormalTok{, }
+        \AttributeTok{x =} \StringTok{"Minutes"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Density"}\NormalTok{) }\SpecialCharTok{+}
+   \FunctionTok{scale\_fill\_discrete}\NormalTok{(}\AttributeTok{name =} \StringTok{"Time (minutes)"}\NormalTok{, }\AttributeTok{labels =} \FunctionTok{c}\NormalTok{(}\StringTok{"Asleep"}\NormalTok{, }\StringTok{"In Bed"}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Warning: `guides(<scale> = FALSE)` is deprecated. Please use `guides(<scale> =
+## "none")` instead.
+\end{verbatim}
+
+\includegraphics{Bellabeat-CaseStudy_files/figure-latex/Sleep delays: Time in bed vs Time asleep-1.pdf}
+
+\hfill\break
+\hfill\break
+
+\hypertarget{step-6-act}{%
+\subsection{Step 6: Act}\label{step-6-act}}
+
+\hypertarget{key-insight}{%
+\paragraph{\texorpdfstring{\textbf{Key
+Insight:}}{Key Insight:}}\label{key-insight}}
+
+\textbf{Use of feature} - The most used feature is step count. - Second
+most used feature is sleep monitoring. - The lease utilized feature is
+weight recording. - If we compare all the features Steps\_count is used
+by around 100\% population on regular basis, and weight\_record is the
+least used feature by the user
+
+\textbf{Time Trends} - Most Active days are Tuesdays and Saturdays and
+least active days are Friday \& Sundays. - Most of the users use the
+device for steps recording between following hours; 07:00-8:00am,
+12:00pm-2:00pm and 5:00pm-7:00pm.
+
+\textbf{Sleep Trends} - People in this sample slept for shorter periods
+of time as they logged more steps. - The average sleep delay is about 40
+minutes
+
+\hypertarget{recommendations}{%
+\paragraph{\texorpdfstring{\textbf{Recommendations:}}{Recommendations:}}\label{recommendations}}
+
+\textbf{Competitions} - Create a regional leader board (like Ludo star)
+with users' weekly/monthly step counts compared to one another for
+competitions. The top 3 users can receive gifts or coupons for discounts
+on future wearable purchases at the end of each term.
+
+\textbf{Notifications} - Provide notifications to the user regrading
+daily/weekly activity goal. In order to aid users in getting ready for
+bed, notifications could also be sent an hour beforehand.
+
+\textbf{Referrals} - Include a referral program so that existing
+wearable users can get progressively bigger discounts on goods or future
+wearable purchases based on how many of their referrals buy a wearable.
+
+\textbf{User Engagement Feature} - develop some feature which will
+encourage use of the product to further your fitness goals i.e.Point
+system or Goals/streaks.
+
+To conclude, I wanted to help Bellabeat better understand its customer
+base and provide helpful advice so that customers can reach their
+fitness objectives. Following my suggestions will significantly increase
+customer engagement with our products and Bellabeat's long-term success.
+
+\end{document}
